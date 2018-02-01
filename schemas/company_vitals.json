@@ -38,7 +38,7 @@
       "type": ["object"],
       "properties": {
         "fullAddress":{
-          "type": "string",
+          "type": "string"
         },
         "structuredAddress": {
           "type": "object",
