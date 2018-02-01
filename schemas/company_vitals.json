@@ -1,1 +1,62 @@
-{}
+{
+  "type": [
+    "object"
+  ],
+  "properties": {
+    "countryCode": {
+      "type": ["string"]
+    },
+    "companyId": {
+      "type": ["string"]
+    },
+    "name": {
+      "type": ["string"]
+    },
+    "type": {
+      "type": ["string"]
+    },
+    "incorporationCountry": {
+      "type": ["string"]
+    },
+    "incorporationDate": {
+      "type": ["string"],
+      "format": "date-time"
+    },
+    "officialStatus": {
+      "type": ["string"]
+    },
+    "simplifiedStatus": {
+      "type": ["string"]
+    },
+    "numberOfEmployees": {
+      "type": ["number"]
+    },
+    "primaryWebsite": {
+      "type": ["string"]
+    },
+    "registeredAddress": {
+      "type": ["object"],
+      "properties": {
+        "fullAddress":{
+          "type": "string",
+        },
+        "structuredAddress": {
+          "type": "object",
+          "properties": {
+            "premises": {"type":"string"},
+            "thoroughfare": {"type": "string"},
+            "dependentLocality": {"type":"string"},
+          }
+
+        }
+      }
+    },
+
+
+    "order_timestamp": {
+      "type": ["string", "null"],
+      "format": "date-time"
+    }
+  },
+  "additionalProperties": false
+}
