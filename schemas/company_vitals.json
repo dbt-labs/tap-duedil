@@ -46,17 +46,44 @@
             "premises": {"type":"string"},
             "thoroughfare": {"type": "string"},
             "dependentLocality": {"type":"string"},
-          }
-
+            "postTown": {"type":"string"},
+            "county": {"type":"string"},
+            "postcode": {"type":"string"},
+            "countryCode": {"type":"string"}
+        },
+        "geolocation": {
+            "type": "object",
+            "properties": {
+                "latitude": {"type": "number"},
+                "longitude": {"type": "number"}
+            }
+        }
         }
       }
     },
-
-
-    "order_timestamp": {
-      "type": ["string", "null"],
-      "format": "date-time"
+    "charitableIdentitiesCount": {
+        "type": ["number", "null"]
+    },
+    "accounts": {
+        "type": "object",
+        "properties": {
+            "filingType": {"type":"string"},
+            "currency": {"type":"string"},
+            "latestAccountsDate": {"type":"string", "format": "date-time"},
+            "consolidatedAccounts": {"type":"boolean"},
+            "nextAccountsDueDate": {"type":"string", "format": "date-time"}
+        }
+    },
+    "financialSummary": {
+        "type": "object",
+        "properties": {
+            "turnover": {"type":"number"},
+            "ebitda": {"type":"number"},
+            "postTaxProfit": {"type":"number"},
+            "totalAssets": {"type":"number"},
+            "netAssets": {"type":"number"}
+        }
     }
-  },
-  "additionalProperties": false
+},
+"additionalProperties": false
 }
