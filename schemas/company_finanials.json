@@ -1,0 +1,1525 @@
+{
+  "type": "object",
+  "properties": {
+    "countryCode": {
+      "type": "string"
+    },
+    "companyId": {
+      "type": "string"
+    },
+    "pagination": {
+      "type": "object",
+      "properties": {
+        "offset": {
+          "type": "number"
+        },
+        "limit": {
+          "type": "number"
+        },
+        "total": {
+          "type": "number"
+        }
+      }
+    },
+    "financials": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "accountsDate": {
+            "type": "string", "format": "date-time"
+          },
+          "reportingPeriod": {
+            "type": "number"
+          },
+          "currency": {
+            "type": "string"
+          },
+          "consolidatedAccounts": {
+            "type": "boolean"
+          },
+          "auditQualification": {
+            "type": "string"
+          },
+          "numberOfEmployees": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "deltaAbsolute": {
+                "type": "number"
+              },
+              "deltaPercentage": {
+                "type": "number"
+              },
+              "threeYearCAGR": {
+                "type": "number"
+              },
+              "fiveYearCAGR": {
+                "type": "number"
+              },
+              "tenYearCAGR": {
+                "type": "number"
+              }
+            }
+          },
+          "turnover": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "deltaAbsolute": {
+                "type": "number"
+              },
+              "deltaPercentage": {
+                "type": "number"
+              },
+              "threeYearCAGR": {
+                "type": "number"
+              },
+              "fiveYearCAGR": {
+                "type": "number"
+              },
+              "tenYearCAGR": {
+                "type": "number"
+              }
+            }
+          },
+          "costOfSales": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "deltaAbsolute": {
+                "type": "number"
+              },
+              "deltaPercentage": {
+                "type": "number"
+              },
+              "threeYearCAGR": {
+                "type": "number"
+              },
+              "fiveYearCAGR": {
+                "type": "number"
+              },
+              "tenYearCAGR": {
+                "type": "number"
+              }
+            }
+          },
+          "sgaPlusOtherNetCosts": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "deltaAbsolute": {
+                "type": "number"
+              },
+              "deltaPercentage": {
+                "type": "number"
+              },
+              "threeYearCAGR": {
+                "type": "number"
+              },
+              "fiveYearCAGR": {
+                "type": "number"
+              },
+              "tenYearCAGR": {
+                "type": "number"
+              }
+            }
+          },
+          "operatingProfit": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "deltaAbsolute": {
+                "type": "number"
+              },
+              "deltaPercentage": {
+                "type": "number"
+              },
+              "threeYearCAGR": {
+                "type": "number"
+              },
+              "fiveYearCAGR": {
+                "type": "number"
+              },
+              "tenYearCAGR": {
+                "type": "number"
+              }
+            }
+          },
+          "interestReceivable": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "deltaAbsolute": {
+                "type": "number"
+              },
+              "deltaPercentage": {
+                "type": "number"
+              },
+              "threeYearCAGR": {
+                "type": "number"
+              },
+              "fiveYearCAGR": {
+                "type": "number"
+              },
+              "tenYearCAGR": {
+                "type": "number"
+              }
+            }
+          },
+          "interestPayable": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "deltaAbsolute": {
+                "type": "number"
+              },
+              "deltaPercentage": {
+                "type": "number"
+              },
+              "threeYearCAGR": {
+                "type": "number"
+              },
+              "fiveYearCAGR": {
+                "type": "number"
+              },
+              "tenYearCAGR": {
+                "type": "number"
+              }
+            }
+          },
+          "preTaxProfit": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "deltaAbsolute": {
+                "type": "number"
+              },
+              "deltaPercentage": {
+                "type": "number"
+              },
+              "threeYearCAGR": {
+                "type": "number"
+              },
+              "fiveYearCAGR": {
+                "type": "number"
+              },
+              "tenYearCAGR": {
+                "type": "number"
+              }
+            }
+          },
+          "taxation": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "deltaAbsolute": {
+                "type": "number"
+              },
+              "deltaPercentage": {
+                "type": "number"
+              },
+              "threeYearCAGR": {
+                "type": "number"
+              },
+              "fiveYearCAGR": {
+                "type": "number"
+              },
+              "tenYearCAGR": {
+                "type": "number"
+              }
+            }
+          },
+          "postTaxProfit": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "deltaAbsolute": {
+                "type": "number"
+              },
+              "deltaPercentage": {
+                "type": "number"
+              },
+              "threeYearCAGR": {
+                "type": "number"
+              },
+              "fiveYearCAGR": {
+                "type": "number"
+              },
+              "tenYearCAGR": {
+                "type": "number"
+              }
+            }
+          },
+          "dividendsPayable": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "deltaAbsolute": {
+                "type": "number"
+              },
+              "deltaPercentage": {
+                "type": "number"
+              },
+              "threeYearCAGR": {
+                "type": "number"
+              },
+              "fiveYearCAGR": {
+                "type": "number"
+              },
+              "tenYearCAGR": {
+                "type": "number"
+              }
+            }
+          },
+          "retainedProfits": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "deltaAbsolute": {
+                "type": "number"
+              },
+              "deltaPercentage": {
+                "type": "number"
+              },
+              "threeYearCAGR": {
+                "type": "number"
+              },
+              "fiveYearCAGR": {
+                "type": "number"
+              },
+              "tenYearCAGR": {
+                "type": "number"
+              }
+            }
+          },
+          "intangibleAssets": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "deltaAbsolute": {
+                "type": "number"
+              },
+              "deltaPercentage": {
+                "type": "number"
+              },
+              "threeYearCAGR": {
+                "type": "number"
+              },
+              "fiveYearCAGR": {
+                "type": "number"
+              },
+              "tenYearCAGR": {
+                "type": "number"
+              }
+            }
+          },
+          "tangibleAssets": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "deltaAbsolute": {
+                "type": "number"
+              },
+              "deltaPercentage": {
+                "type": "number"
+              },
+              "threeYearCAGR": {
+                "type": "number"
+              },
+              "fiveYearCAGR": {
+                "type": "number"
+              },
+              "tenYearCAGR": {
+                "type": "number"
+              }
+            }
+          },
+          "investmentsAndOtherAssets": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "deltaAbsolute": {
+                "type": "number"
+              },
+              "deltaPercentage": {
+                "type": "number"
+              },
+              "threeYearCAGR": {
+                "type": "number"
+              },
+              "fiveYearCAGR": {
+                "type": "number"
+              },
+              "tenYearCAGR": {
+                "type": "number"
+              }
+            }
+          },
+          "fixedAssets": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "deltaAbsolute": {
+                "type": "number"
+              },
+              "deltaPercentage": {
+                "type": "number"
+              },
+              "threeYearCAGR": {
+                "type": "number"
+              },
+              "fiveYearCAGR": {
+                "type": "number"
+              },
+              "tenYearCAGR": {
+                "type": "number"
+              }
+            }
+          },
+          "stock": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "deltaAbsolute": {
+                "type": "number"
+              },
+              "deltaPercentage": {
+                "type": "number"
+              },
+              "threeYearCAGR": {
+                "type": "number"
+              },
+              "fiveYearCAGR": {
+                "type": "number"
+              },
+              "tenYearCAGR": {
+                "type": "number"
+              }
+            }
+          },
+          "tradeDebtors": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "deltaAbsolute": {
+                "type": "number"
+              },
+              "deltaPercentage": {
+                "type": "number"
+              },
+              "threeYearCAGR": {
+                "type": "number"
+              },
+              "fiveYearCAGR": {
+                "type": "number"
+              },
+              "tenYearCAGR": {
+                "type": "number"
+              }
+            }
+          },
+          "otherDebtors": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "deltaAbsolute": {
+                "type": "number"
+              },
+              "deltaPercentage": {
+                "type": "number"
+              },
+              "threeYearCAGR": {
+                "type": "number"
+              },
+              "fiveYearCAGR": {
+                "type": "number"
+              },
+              "tenYearCAGR": {
+                "type": "number"
+              }
+            }
+          },
+          "miscellaneousCurrentAssets": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "deltaAbsolute": {
+                "type": "number"
+              },
+              "deltaPercentage": {
+                "type": "number"
+              },
+              "threeYearCAGR": {
+                "type": "number"
+              },
+              "fiveYearCAGR": {
+                "type": "number"
+              },
+              "tenYearCAGR": {
+                "type": "number"
+              }
+            }
+          },
+          "cash": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "deltaAbsolute": {
+                "type": "number"
+              },
+              "deltaPercentage": {
+                "type": "number"
+              },
+              "threeYearCAGR": {
+                "type": "number"
+              },
+              "fiveYearCAGR": {
+                "type": "number"
+              },
+              "tenYearCAGR": {
+                "type": "number"
+              }
+            }
+          },
+          "currentAssets": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "deltaAbsolute": {
+                "type": "number"
+              },
+              "deltaPercentage": {
+                "type": "number"
+              },
+              "threeYearCAGR": {
+                "type": "number"
+              },
+              "fiveYearCAGR": {
+                "type": "number"
+              },
+              "tenYearCAGR": {
+                "type": "number"
+              }
+            }
+          },
+          "totalAssets": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "deltaAbsolute": {
+                "type": "number"
+              },
+              "deltaPercentage": {
+                "type": "number"
+              },
+              "threeYearCAGR": {
+                "type": "number"
+              },
+              "fiveYearCAGR": {
+                "type": "number"
+              },
+              "tenYearCAGR": {
+                "type": "number"
+              }
+            }
+          },
+          "bankLoansAndOverdrafts": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "deltaAbsolute": {
+                "type": "number"
+              },
+              "deltaPercentage": {
+                "type": "number"
+              },
+              "threeYearCAGR": {
+                "type": "number"
+              },
+              "fiveYearCAGR": {
+                "type": "number"
+              },
+              "tenYearCAGR": {
+                "type": "number"
+              }
+            }
+          },
+          "tradeCreditors": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "deltaAbsolute": {
+                "type": "number"
+              },
+              "deltaPercentage": {
+                "type": "number"
+              },
+              "threeYearCAGR": {
+                "type": "number"
+              },
+              "fiveYearCAGR": {
+                "type": "number"
+              },
+              "tenYearCAGR": {
+                "type": "number"
+              }
+            }
+          },
+          "miscellaneousCurrentLiabilities": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "deltaAbsolute": {
+                "type": "number"
+              },
+              "deltaPercentage": {
+                "type": "number"
+              },
+              "threeYearCAGR": {
+                "type": "number"
+              },
+              "fiveYearCAGR": {
+                "type": "number"
+              },
+              "tenYearCAGR": {
+                "type": "number"
+              }
+            }
+          },
+          "otherShortTermFinances": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "deltaAbsolute": {
+                "type": "number"
+              },
+              "deltaPercentage": {
+                "type": "number"
+              },
+              "threeYearCAGR": {
+                "type": "number"
+              },
+              "fiveYearCAGR": {
+                "type": "number"
+              },
+              "tenYearCAGR": {
+                "type": "number"
+              }
+            }
+          },
+          "currentLiabilities": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "deltaAbsolute": {
+                "type": "number"
+              },
+              "deltaPercentage": {
+                "type": "number"
+              },
+              "threeYearCAGR": {
+                "type": "number"
+              },
+              "fiveYearCAGR": {
+                "type": "number"
+              },
+              "tenYearCAGR": {
+                "type": "number"
+              }
+            }
+          },
+          "contingentLiabilities": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "deltaAbsolute": {
+                "type": "number"
+              },
+              "deltaPercentage": {
+                "type": "number"
+              },
+              "threeYearCAGR": {
+                "type": "number"
+              },
+              "fiveYearCAGR": {
+                "type": "number"
+              },
+              "tenYearCAGR": {
+                "type": "number"
+              }
+            }
+          },
+          "otherLongTermFinances": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "deltaAbsolute": {
+                "type": "number"
+              },
+              "deltaPercentage": {
+                "type": "number"
+              },
+              "threeYearCAGR": {
+                "type": "number"
+              },
+              "fiveYearCAGR": {
+                "type": "number"
+              },
+              "tenYearCAGR": {
+                "type": "number"
+              }
+            }
+          },
+          "totalLongTermLiabilities": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "deltaAbsolute": {
+                "type": "number"
+              },
+              "deltaPercentage": {
+                "type": "number"
+              },
+              "threeYearCAGR": {
+                "type": "number"
+              },
+              "fiveYearCAGR": {
+                "type": "number"
+              },
+              "tenYearCAGR": {
+                "type": "number"
+              }
+            }
+          },
+          "totalLiabilities": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "deltaAbsolute": {
+                "type": "number"
+              },
+              "deltaPercentage": {
+                "type": "number"
+              },
+              "threeYearCAGR": {
+                "type": "number"
+              },
+              "fiveYearCAGR": {
+                "type": "number"
+              },
+              "tenYearCAGR": {
+                "type": "number"
+              }
+            }
+          },
+          "netAssets": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "deltaAbsolute": {
+                "type": "number"
+              },
+              "deltaPercentage": {
+                "type": "number"
+              },
+              "threeYearCAGR": {
+                "type": "number"
+              },
+              "fiveYearCAGR": {
+                "type": "number"
+              },
+              "tenYearCAGR": {
+                "type": "number"
+              }
+            }
+          },
+          "equityPaidUp": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "deltaAbsolute": {
+                "type": "number"
+              },
+              "deltaPercentage": {
+                "type": "number"
+              },
+              "threeYearCAGR": {
+                "type": "number"
+              },
+              "fiveYearCAGR": {
+                "type": "number"
+              },
+              "tenYearCAGR": {
+                "type": "number"
+              }
+            }
+          },
+          "revaluationReserve": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "deltaAbsolute": {
+                "type": "number"
+              },
+              "deltaPercentage": {
+                "type": "number"
+              },
+              "threeYearCAGR": {
+                "type": "number"
+              },
+              "fiveYearCAGR": {
+                "type": "number"
+              },
+              "tenYearCAGR": {
+                "type": "number"
+              }
+            }
+          },
+          "sundryReserves": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "deltaAbsolute": {
+                "type": "number"
+              },
+              "deltaPercentage": {
+                "type": "number"
+              },
+              "threeYearCAGR": {
+                "type": "number"
+              },
+              "fiveYearCAGR": {
+                "type": "number"
+              },
+              "tenYearCAGR": {
+                "type": "number"
+              }
+            }
+          },
+          "profitAndLossAccountReserve": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "deltaAbsolute": {
+                "type": "number"
+              },
+              "deltaPercentage": {
+                "type": "number"
+              },
+              "threeYearCAGR": {
+                "type": "number"
+              },
+              "fiveYearCAGR": {
+                "type": "number"
+              },
+              "tenYearCAGR": {
+                "type": "number"
+              }
+            }
+          },
+          "shareholderFunds": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "deltaAbsolute": {
+                "type": "number"
+              },
+              "deltaPercentage": {
+                "type": "number"
+              },
+              "threeYearCAGR": {
+                "type": "number"
+              },
+              "fiveYearCAGR": {
+                "type": "number"
+              },
+              "tenYearCAGR": {
+                "type": "number"
+              }
+            }
+          },
+          "depreciation": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "deltaAbsolute": {
+                "type": "number"
+              },
+              "deltaPercentage": {
+                "type": "number"
+              },
+              "threeYearCAGR": {
+                "type": "number"
+              },
+              "fiveYearCAGR": {
+                "type": "number"
+              },
+              "tenYearCAGR": {
+                "type": "number"
+              }
+            }
+          },
+          "amortisationOfIntangibles": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "deltaAbsolute": {
+                "type": "number"
+              },
+              "deltaPercentage": {
+                "type": "number"
+              },
+              "threeYearCAGR": {
+                "type": "number"
+              },
+              "fiveYearCAGR": {
+                "type": "number"
+              },
+              "tenYearCAGR": {
+                "type": "number"
+              }
+            }
+          },
+          "ebitda": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "deltaAbsolute": {
+                "type": "number"
+              },
+              "deltaPercentage": {
+                "type": "number"
+              },
+              "threeYearCAGR": {
+                "type": "number"
+              },
+              "fiveYearCAGR": {
+                "type": "number"
+              },
+              "tenYearCAGR": {
+                "type": "number"
+              }
+            }
+          },
+          "workingCapital": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "deltaAbsolute": {
+                "type": "number"
+              },
+              "deltaPercentage": {
+                "type": "number"
+              },
+              "threeYearCAGR": {
+                "type": "number"
+              },
+              "fiveYearCAGR": {
+                "type": "number"
+              },
+              "tenYearCAGR": {
+                "type": "number"
+              }
+            }
+          },
+          "capitalEmployed": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "deltaAbsolute": {
+                "type": "number"
+              },
+              "deltaPercentage": {
+                "type": "number"
+              },
+              "threeYearCAGR": {
+                "type": "number"
+              },
+              "fiveYearCAGR": {
+                "type": "number"
+              },
+              "tenYearCAGR": {
+                "type": "number"
+              }
+            }
+          },
+          "wagesAndSalaries": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "deltaAbsolute": {
+                "type": "number"
+              },
+              "deltaPercentage": {
+                "type": "number"
+              },
+              "threeYearCAGR": {
+                "type": "number"
+              },
+              "fiveYearCAGR": {
+                "type": "number"
+              },
+              "tenYearCAGR": {
+                "type": "number"
+              }
+            }
+          },
+          "directorsEmoluments": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "deltaAbsolute": {
+                "type": "number"
+              },
+              "deltaPercentage": {
+                "type": "number"
+              },
+              "threeYearCAGR": {
+                "type": "number"
+              },
+              "fiveYearCAGR": {
+                "type": "number"
+              },
+              "tenYearCAGR": {
+                "type": "number"
+              }
+            }
+          },
+          "auditFees": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "deltaAbsolute": {
+                "type": "number"
+              },
+              "deltaPercentage": {
+                "type": "number"
+              },
+              "threeYearCAGR": {
+                "type": "number"
+              },
+              "fiveYearCAGR": {
+                "type": "number"
+              },
+              "tenYearCAGR": {
+                "type": "number"
+              }
+            }
+          },
+          "bankOverdraftAndLongTermLoans": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "deltaAbsolute": {
+                "type": "number"
+              },
+              "deltaPercentage": {
+                "type": "number"
+              },
+              "threeYearCAGR": {
+                "type": "number"
+              },
+              "fiveYearCAGR": {
+                "type": "number"
+              },
+              "tenYearCAGR": {
+                "type": "number"
+              }
+            }
+          },
+          "netCashFlowFromOperations": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "deltaAbsolute": {
+                "type": "number"
+              },
+              "deltaPercentage": {
+                "type": "number"
+              },
+              "threeYearCAGR": {
+                "type": "number"
+              },
+              "fiveYearCAGR": {
+                "type": "number"
+              },
+              "tenYearCAGR": {
+                "type": "number"
+              }
+            }
+          },
+          "netCashFlowBeforeFinancing": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "deltaAbsolute": {
+                "type": "number"
+              },
+              "deltaPercentage": {
+                "type": "number"
+              },
+              "threeYearCAGR": {
+                "type": "number"
+              },
+              "fiveYearCAGR": {
+                "type": "number"
+              },
+              "tenYearCAGR": {
+                "type": "number"
+              }
+            }
+          },
+          "netCashFlowFromFinancing": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "deltaAbsolute": {
+                "type": "number"
+              },
+              "deltaPercentage": {
+                "type": "number"
+              },
+              "threeYearCAGR": {
+                "type": "number"
+              },
+              "fiveYearCAGR": {
+                "type": "number"
+              },
+              "tenYearCAGR": {
+                "type": "number"
+              }
+            }
+          },
+          "increaseInCash": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "deltaAbsolute": {
+                "type": "number"
+              },
+              "deltaPercentage": {
+                "type": "number"
+              },
+              "threeYearCAGR": {
+                "type": "number"
+              },
+              "fiveYearCAGR": {
+                "type": "number"
+              },
+              "tenYearCAGR": {
+                "type": "number"
+              }
+            }
+          },
+          "debtorDays": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "deltaAbsolute": {
+                "type": "number"
+              },
+              "deltaPercentage": {
+                "type": "number"
+              },
+              "threeYearCAGR": {
+                "type": "number"
+              },
+              "fiveYearCAGR": {
+                "type": "number"
+              },
+              "tenYearCAGR": {
+                "type": "number"
+              }
+            }
+          },
+          "exports": {
+            "type": "object",
+
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "deltaAbsolute": {
+                "type": "number"
+              },
+              "deltaPercentage": {
+                "type": "number"
+              },
+              "threeYearCAGR": {
+                "type": "number"
+              },
+              "fiveYearCAGR": {
+                "type": "number"
+              },
+              "tenYearCAGR": {
+                "type": "number"
+              }
+            }
+          },
+          "grossMarginPercentage": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              }
+            }
+          },
+          "operatingProfitMarginPercentage": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              }
+            }
+          },
+          "ebitdaMarginPercentage": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              }
+            }
+          },
+          "preTaxProfitMarginPercentage": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              }
+            }
+          },
+          "netMarginPercentage": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              }
+            }
+          },
+          "returnOnAssetsPercentage": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              }
+            }
+          },
+          "returnOnCapitalEmployedPercentage": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              }
+            }
+          },
+          "returnOnEquity": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              }
+            }
+          },
+          "currentRatio": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              }
+            }
+          },
+          "cashToCurrentLiabilitiesRatio": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              }
+            }
+          },
+          "cashToTotalAssetsPercentage": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              }
+            }
+          },
+          "liquidityRatio": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              }
+            }
+          },
+          "gearingPercentageOnLiabilityBasis": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              }
+            }
+          },
+          "gearingPercentageOnGrossDebtBasis": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              }
+            }
+          },
+          "gearingPercentageOnNetDebtBasis": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              }
+            }
+          },
+          "debtToCapitalPercentage": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              }
+            }
+          },
+          "inventoryTurnoverRatio": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              }
+            }
+          },
+          "cashToTurnoverRatio": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              }
+            }
+          },
+          "cashToTurnoverPercentage": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              }
+            }
+          },
+          "daysInventoryOutstanding": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              }
+            }
+          },
+          "daysSalesOutstanding": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              }
+            }
+          },
+          "daysPayableOutstanding": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              }
+            }
+          },
+          "cashConversionCycle": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              }
+            }
+          },
+          "revenuePerEmployee": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              }
+            }
+          },
+          "humanCapitalValueAdded": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              }
+            }
+          },
+          "interestCoverageRatio": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              }
+            }
+          },
+          "netDebtToEBITDARatio": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              }
+            }
+          },
+          "cfoToSalesRatio": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              }
+            }
+          },
+          "auditor": {
+            "type": "object",
+            "properties": {
+              "sourceName": {
+                "type": "string"
+              }
+            }
+          },
+          "jointAuditor": {
+            "type": "object",
+            "properties": {
+              "sourceName": {
+                "type": "string"
+              }
+            }
+          },
+          "solicitor": {
+            "type": "object",
+            "properties": {
+              "sourceName": {
+                "type": "string"
+              }
+            }
+          },
+          "accountant": {
+            "type": "object",
+            "properties": {
+              "sourceName": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}

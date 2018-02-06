@@ -1,0 +1,5 @@
+company_industries:
+- line 25 (array of strings)
+
+company_addresses:
+- line 25

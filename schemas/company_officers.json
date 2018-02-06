@@ -1,0 +1,185 @@
+{
+  "type": "object",
+  "properties": {
+    "countryCode": {
+      "type": "string"
+    },
+    "companyId": {
+      "type": "string"
+    },
+    "pagination": {
+      "type": "object",
+      "properties": {
+        "offset": {
+          "type": "number"
+        },
+        "limit": {
+          "type": "number"
+        },
+        "total": {
+          "type": "number"
+        }
+      }
+    },
+    "filters": {
+      "type": "object",
+      "properties": {
+          "appointmentStatuses": {
+              "type": "array",
+              "items": {"type": "string"}
+          }
+      }
+    },
+    "officers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "officerId": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "person": {
+            "type": "object",
+            "properties": {
+              "honorific": {
+                "type": "string"
+              },
+              "firstName": {
+                "type": "string"
+              },
+              "middleName": {
+                "type": "string"
+              },
+              "lastName": {
+                "type": "string"
+              },
+              "nationalities": {
+                "type": "array",
+                "items": {
+                    "demonym": {
+                     "type": ["string", "null"]
+                },
+                "countryCode": {
+                    "type": ["string", "null"]
+                }
+              }
+          },
+              "dateOfBirth": {
+                "type": "object",
+                "properties": {
+                  "year": {
+                    "type": "number"
+                  },
+                  "month": {
+                    "type": ["number", "null"]
+                  }
+                }
+              }
+            }
+          },
+          "company": {
+            "type": "object",
+            "properties": {
+                "countryCode": {
+                    "type": "string"
+                },
+                "companyId": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "officialStatus": {
+                    "type": "string"
+                },
+                "simplifiedStatus": {
+                    "type": "string"
+                }
+            }
+          },
+          "isShareholder": {
+            "type": "boolean"
+          },
+          "disqualifications": {
+            "type": "array",
+            "items": {
+              "legislation": "object",
+              "properties": {
+                  "act": {"type": "string"},
+                  "description": {"type": "string"},
+                  "url": {"type": "string"},
+                "startDate": {"type": "string",
+                    "format": "date-time"
+                },
+                "endDate": {"type": "string",
+                    "format": "date-time"
+                }
+              }
+          },
+          "appointments": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string"
+                },
+                "startDate": {
+                  "type": "string", "format":"date-time"
+                },
+                "endDate": {
+                  "type": "string", "format":"date-time"
+                },
+                "officialRole": {
+                  "type": "string"
+                },
+                "selfDescribedPosition": {
+                  "type": "string"
+                },
+                "serviceAddress": {
+                  "type": "object",
+                  "properties": {
+                    "fullAddress": {
+                      "type": "string"
+                    },
+                    "structuredAddress": {
+                      "type": "object",
+                      "properties": {
+                        "premises": {
+                          "type": "string"
+                        },
+                        "thoroughfare": {
+                          "type": "string"
+                        },
+                        "dependentLocality": {
+                          "type": "string"
+                        },
+                        "postTown": {
+                          "type": "string"
+                        },
+                        "county": {
+                          "type": "string"
+                        },
+                        "postcode": {
+                          "type": "string"
+                        },
+                        "countryCode": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+  }
+},
+"additionalProperties": false
+}
