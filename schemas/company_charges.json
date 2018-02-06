@@ -1,0 +1,66 @@
+{
+  "type": "object",
+  "properties": {
+    "countryCode": {
+      "type": "string"
+    },
+    "companyId": {
+      "type": "string"
+    },
+    "pagination": {
+      "type": "object",
+      "properties": {
+        "offset": {
+          "type": "number"
+        },
+        "limit": {
+          "type": "number"
+        },
+        "total": {
+          "type": "number"
+        }
+      }
+    },
+    "charges": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "dateCreated": {
+            "type": "string", "format": "date-time"
+          },
+          "dateFiled": {
+            "type": "string", "format": "date-time"
+          },
+          "dateSatisfied": {
+            "type": "string", "format": "date-time"
+          },
+          "personsEntitled": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "sourceName": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "amountSecured": {
+            "type": "string"
+          },
+          "shortParticulars": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}
