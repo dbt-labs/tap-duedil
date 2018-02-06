@@ -1,0 +1,259 @@
+{
+  "type": "object",
+  "properties": {
+    "countryCode": {
+      "type": "string"
+    },
+    "companyId": {
+      "type": "string"
+    },
+    "pagination": {
+      "type": "object",
+      "properties": {
+        "offset": {
+          "type": "number"
+        },
+        "limit": {
+          "type": "number"
+        },
+        "total": {
+          "type": "number"
+        }
+      }
+    },
+    "statements": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+            "filedAt": {"type": "number", "format": "date-time"},
+            "ceasedAt": {"type": "number", "format": "date-time"},
+            "statementType": {"type": "string"}
+        }
+      }
+    },
+    "personsOfSignificantControl": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "person": {
+            "type": "object",
+            "properties": {
+              "sourceName": {
+                "type": "string"
+              },
+              "serviceAddress": {
+                "type": "object",
+                "properties": {
+                  "fullAddress": {
+                    "type": "string"
+                  }
+                }
+              },
+              "nationalities": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "demonym": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "residency": {
+                "type": "object",
+                "properties": {
+                  "countryName": {
+                    "type": "string"
+                  },
+                  "code": {
+                    "type": "string"
+                  }
+                }
+              },
+              "dateOfBirth": {
+                "type": "object",
+                "properties": {
+                  "year": {
+                    "type": "number"
+                  },
+                  "month": {
+                    "type": "number"
+                  }
+                }
+              }
+            }
+          },
+          "company": {
+            "type": "object",
+            "properties": {
+                "sourceName": {"type": "string"},
+                "officeAddress": {"type": "object",
+                    "properties": {
+                        "fullAddress": {"type":"string"}
+                    }
+                },
+                "registrationNumber": {"type": "string"}
+            }
+          },
+          "otherLegalEntity": {
+            "type": "object",
+            "properties": {
+                "sourceName": {"type": "string"},
+                "serviceAddress": {"type": "object",
+                    "properties": {
+                        "fullAddress": {"type":"string"}
+                }
+            }
+          }
+      },
+          "naturesOfControl": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "isShareholder": {
+            "type": "boolean"
+          },
+          "exactMatches": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string"
+                },
+                "person": {
+                  "type": "object",
+                  "properties": {
+                    "honorific": {
+                      "type": "string"
+                    },
+                    "firstName": {
+                      "type": "string"
+                    },
+                    "middleName": {
+                      "type": "string"
+                    },
+                    "lastName": {
+                      "type": "string"
+                    },
+                    "nationalities": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "demonym": {
+                            "type": "string"
+                          },
+                          "countryCode": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "dateOfBirth": {
+                      "type": "object",
+                      "properties": {
+                        "year": {
+                          "type": "number"
+                        },
+                        "month": {
+                          "type": "number"
+                        }
+                      }
+                    },
+                    "officerId": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "company": {
+                  "type": "object",
+                  "properties": {
+                      "countryCode": {"type": "string"},
+                      "companyId": {"type": "string"},
+                      "name": {"type": "string"},
+                      "officialStatus": {"type": "string"},
+                      "simplifiedStatus": {"type": "string"}
+                  }
+                }
+              }
+            }
+          },
+          "possibleMatches": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "person": {
+                "type": "object",
+                "properties": {
+                  "honorific": {
+                    "type": "string"
+                  },
+                  "firstName": {
+                    "type": "string"
+                  },
+                  "middleName": {
+                    "type": "string"
+                  },
+                  "lastName": {
+                    "type": "string"
+                  },
+                  "nationalities": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "demonym": {
+                          "type": "string"
+                        },
+                        "countryCode": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "dateOfBirth": {
+                    "type": "object",
+                    "properties": {
+                      "year": {
+                        "type": "number"
+                      },
+                      "month": {
+                        "type": "number"
+                      }
+                    }
+                  },
+                  "officerId": {
+                    "type": "string"
+                  }
+                }
+              },
+              "company": {
+                "type": "object",
+                "properties": {
+                    "countryCode": {"type": "string"},
+                    "companyId": {"type": "string"},
+                    "name": {"type": "string"},
+                    "officialStatus": {"type": "string"},
+                    "simplifiedStatus": {"type": "string"}
+                }
+              }
+              }
+            }
+          }
+        }
+      }
+    },
+    "additionalProperties": false
+  }

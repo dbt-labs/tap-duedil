@@ -1,0 +1,52 @@
+{
+  "type": "object",
+  "properties": {
+    "countryCode": {
+      "type": "string"
+    },
+    "companyId": {
+      "type": "string"
+    },
+    "pagination": {
+      "type": "object",
+      "properties": {
+        "offset": {
+          "type": "number"
+        },
+        "limit": {
+          "type": "number"
+        },
+        "total": {
+          "type": "number"
+        }
+      }
+    },
+    "gazetteNotices": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "publicationDate": {
+            "type": "string", "format": "date-time"
+          },
+          "noticeId": {
+            "type": "string"
+          },
+          "noticeType": {
+            "type": "string"
+          },
+          "edition": {
+            "type": "string"
+          },
+          "issue": {
+            "type": "string"
+          },
+          "details": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}

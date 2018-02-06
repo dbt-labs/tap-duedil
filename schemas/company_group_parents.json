@@ -1,0 +1,52 @@
+{
+  "type": "object",
+  "properties": {
+    "countryCode": {
+      "type": "string"
+    },
+    "companyId": {
+      "type": "string"
+    },
+    "pagination": {
+      "type": "object",
+      "properties": {
+        "offset": {
+          "type": "number"
+        },
+        "limit": {
+          "type": "number"
+        },
+        "total": {
+          "type": "number"
+        }
+      }
+    },
+    "groupParents": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "countryCode": {
+            "type": "string"
+          },
+          "companyId": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "degreeOfSeparation": {
+            "type": "number"
+          },
+          "isImmediateParent": {
+            "type": "boolean"
+          },
+          "isUltimateParent": {
+            "type": "boolean"
+          }
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}

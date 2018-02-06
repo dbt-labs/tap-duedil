@@ -1,0 +1,87 @@
+{
+  "type": "object",
+  "properties": {
+    "countryCode": {
+      "type": "string"
+    },
+    "companyId": {
+      "type": "string"
+    },
+    "pagination": {
+      "type": "object",
+      "properties": {
+        "offset": {
+          "type": "number"
+        },
+        "limit": {
+          "type": "number"
+        },
+        "total": {
+          "type": "number"
+        }
+      }
+    },
+    "relatedCompanies": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "countryCode": {
+            "type": "string"
+          },
+          "companyId": {
+            "type": "string"
+          },
+          "officialStatus": {
+            "type": "string"
+          },
+          "simplifiedStatus": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "string"
+          },
+          "nameSimilarityScore": {
+            "type": "number"
+          },
+          "mutualAddresses": {
+            "type": "object",
+            "properties": {
+              "count": {
+                "type": "number"
+              }
+            }
+          },
+          "mutualMajorShareholders": {
+            "type": "object",
+            "properties": {
+              "count": {
+                "type": "number"
+              }
+            }
+          },
+          "mutualOfficers": {
+            "type": "object",
+            "properties": {
+              "count": {
+                "type": "number"
+              }
+            }
+          },
+          "mutualInvestments": {
+            "type": "object",
+            "properties": {
+              "count": {
+                "type": "number"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}
