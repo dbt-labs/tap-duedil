@@ -1,0 +1,39 @@
+{
+
+    "type": "object",
+    "required": [
+        "value",
+        "deltaAbsolute",
+        "deltaPercentage",
+        "threeYearCAGR",
+        "fiveYearCAGR",
+        "tenYearCAGR"
+    ],
+    "additionalProperties": false,
+    "properties": {
+        "value": {
+            "type": ["number", "null"],
+            "format": "float"
+        },
+        "deltaAbsolute": {
+            "type": ["number", "null"],
+            "format": "float"
+        },
+        "deltaPercentage": {
+            "type": ["number", "null"],
+            "format": "float"
+        },
+        "threeYearCAGR": {
+            "type": ["number", "null"],
+            "format": "float"
+        },
+        "fiveYearCAGR": {
+            "type": ["number", "null"],
+            "format": "float"
+        },
+        "tenYearCAGR": {
+            "type": ["number", "null"],
+            "format": "float"
+        }
+    }
+}

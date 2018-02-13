@@ -1,0 +1,89 @@
+{
+    "type": "object",
+    "properties": {
+        "countryCode": {
+            "type": "string"
+        },
+        "companyId": {
+            "type": "string"
+        },
+        "pagination": {
+            "type": "object",
+            "properties": {
+                "offset": {
+                    "type": "number"
+                },
+                "limit": {
+                    "type": "number"
+                },
+                "total": {
+                    "type": "number"
+                }
+            }
+        },
+        "filters": {
+            "type": [
+                "array",
+                "null"
+            ],
+            "items": {
+                "type": "string"
+            }
+        },
+        "addresses": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "types": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "fullAddress": {
+                        "type": "string"
+                    },
+                    "structuredAddress": {
+                        "type": ["object", "null"],
+                        "properties": {
+                            "premises": {
+                                "type": ["string", "null"]
+                            },
+                            "thoroughfare": {
+                                "type": ["string", "null"]
+                            },
+                            "dependentLocality": {
+                                "type": ["string", "null"]
+                            },
+                            "postTown": {
+                                "type": ["string", "null"]
+                            },
+                            "county": {
+                                "type": ["string", "null"]
+                            },
+                            "postcode": {
+                                "type": ["string", "null"]
+                            },
+                            "countryCode": {
+                                "type": ["string", "null"]
+                            }
+                        }
+                    },
+                    "geolocation": {
+                        "type": ["object", "null"],
+                        "properties": {
+                            "latitude": {
+                                "type": "number"
+                            },
+                            "longitude": {
+                                "type": "number"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "additionalProperties": false
+}

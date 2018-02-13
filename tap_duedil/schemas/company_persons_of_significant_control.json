@@ -26,99 +26,119 @@
       "items": {
         "type": "object",
         "properties": {
-            "filedAt": {"type": "number", "format": "date-time"},
-            "ceasedAt": {"type": "number", "format": "date-time"},
-            "statementType": {"type": "string"}
+            "filedAt": {
+                "type": "string",
+                "format": "date-time"
+            },
+            "ceasedAt": {
+                "type": "string",
+                "format": "date-time"
+            },
+            "statementType": {
+                "type": ["string", "null"]
+            }
         }
       }
     },
     "personsOfSignificantControl": {
       "type": "array",
       "items": {
-        "type": "object",
+        "type": ["object", "null"],
         "properties": {
           "type": {
-            "type": "string"
+            "type": ["string", "null"]
           },
           "person": {
             "type": "object",
             "properties": {
               "sourceName": {
-                "type": "string"
+                "type": ["string", "null"]
               },
               "serviceAddress": {
                 "type": "object",
                 "properties": {
                   "fullAddress": {
-                    "type": "string"
+                    "type": ["string", "null"]
                   }
                 }
               },
               "nationalities": {
-                "type": "array",
+                "type": ["array", "null"],
                 "items": {
-                  "type": "object",
+                  "type": ["object", "null"],
                   "properties": {
                     "demonym": {
-                      "type": "string"
+                      "type": ["string", "null"]
                     },
                     "code": {
-                      "type": "string"
+                      "type": ["string", "null"]
                     }
                   }
                 }
               },
               "residency": {
-                "type": "object",
+                "type": ["object", "null"],
                 "properties": {
                   "countryName": {
-                    "type": "string"
+                    "type": ["string", "null"]
                   },
                   "code": {
-                    "type": "string"
+                    "type": ["string", "null"]
                   }
                 }
               },
               "dateOfBirth": {
-                "type": "object",
+                "type": ["object", "null"],
                 "properties": {
                   "year": {
-                    "type": "number"
+                    "type": ["number", "null"]
                   },
                   "month": {
-                    "type": "number"
+                    "type": ["number", "null"]
                   }
                 }
               }
             }
           },
           "company": {
-            "type": "object",
+            "type": ["object", "null"],
             "properties": {
-                "sourceName": {"type": "string"},
-                "officeAddress": {"type": "object",
+                "sourceName": {
+                    "type": ["string", "null"]
+                },
+                "officeAddress": {
+                    "type": ["object", "null"],
                     "properties": {
-                        "fullAddress": {"type":"string"}
+                        "fullAddress": {
+                            "type":["string", "null"]
+                        }
                     }
                 },
-                "registrationNumber": {"type": "string"}
+                "registrationNumber": {
+                    "type": ["string", "null"]
+                }
             }
           },
           "otherLegalEntity": {
-            "type": "object",
+            "type": ["object", "null"],
             "properties": {
-                "sourceName": {"type": "string"},
-                "serviceAddress": {"type": "object",
+                "sourceName": {
+                    "type": ["string", "null"]
+                },
+                "serviceAddress": {
+                    "type": ["object", "null"],
                     "properties": {
-                        "fullAddress": {"type":"string"}
+                        "fullAddress": {
+                            "type": ["string", "null"]
+                        }
+                    }
                 }
-            }
-          }
-      },
+             }
+          },
           "naturesOfControl": {
             "type": "array",
             "items": {
-              "type": "string"
+              "type": ["string", "null"]
             }
           },
           "isShareholder": {
@@ -127,64 +147,74 @@
           "exactMatches": {
             "type": "array",
             "items": {
-              "type": "object",
+              "type": ["object", "null"],
               "properties": {
                 "type": {
-                  "type": "string"
+                  "type": ["string", "null"]
                 },
                 "person": {
-                  "type": "object",
+                  "type": ["object", "null"],
                   "properties": {
                     "honorific": {
-                      "type": "string"
+                      "type": ["string", "null"]
                     },
                     "firstName": {
-                      "type": "string"
+                      "type": ["string", "null"]
                     },
                     "middleName": {
-                      "type": "string"
+                      "type": ["string", "null"]
                     },
                     "lastName": {
-                      "type": "string"
+                      "type": ["string", "null"]
                     },
                     "nationalities": {
                       "type": "array",
                       "items": {
-                        "type": "object",
+                        "type": ["object", "null"],
                         "properties": {
                           "demonym": {
-                            "type": "string"
+                            "type": ["string", "null"]
                           },
                           "countryCode": {
-                            "type": "string"
+                            "type": ["string", "null"]
                           }
                         }
                       }
                     },
                     "dateOfBirth": {
-                      "type": "object",
+                      "type": ["object", "null"],
                       "properties": {
                         "year": {
-                          "type": "number"
+                          "type": ["number", "null"]
                         },
                         "month": {
-                          "type": "number"
+                          "type": ["number", "null"]
                         }
                       }
                     },
                     "officerId": {
-                      "type": "string"
+                      "type": ["string", "null"]
                     }
                   }
                 },
                 "company": {
-                  "type": "object",
+                  "type": ["object", "null"],
                   "properties": {
-                      "countryCode": {"type": "string"},
-                      "companyId": {"type": "string"},
-                      "name": {"type": "string"},
-                      "officialStatus": {"type": "string"},
-                      "simplifiedStatus": {"type": "string"}
+                      "countryCode": {
+                          "type": ["string", "null"]
+                      },
+                      "companyId": {
+                          "type": ["string", "null"]
+                      },
+                      "name": {
+                          "type": ["string", "null"]
+                      },
+                      "officialStatus": {
+                          "type": ["string", "null"]
+                      },
+                      "simplifiedStatus": {
+                          "type": ["string", "null"]
+                      }
                   }
                 }
               }
@@ -193,60 +223,70 @@
           "possibleMatches": {
             "type": "array",
             "items": {
-              "type": "string",
+              "type": ["string", "null"],
               "person": {
-                "type": "object",
+                "type": ["object", "null"],
                 "properties": {
                   "honorific": {
-                    "type": "string"
+                    "type": ["string", "null"]
                   },
                   "firstName": {
-                    "type": "string"
+                    "type": ["string", "null"]
                   },
                   "middleName": {
-                    "type": "string"
+                    "type": ["string", "null"]
                   },
                   "lastName": {
-                    "type": "string"
+                    "type": ["string", "null"]
                   },
                   "nationalities": {
                     "type": "array",
                     "items": {
-                      "type": "object",
+                      "type": ["object", "null"],
                       "properties": {
                         "demonym": {
-                          "type": "string"
+                          "type": ["string", "null"]
                         },
                         "countryCode": {
-                          "type": "string"
+                          "type": ["string", "null"]
                         }
                       }
                     }
                   },
                   "dateOfBirth": {
-                    "type": "object",
+                    "type": ["object", "null"],
                     "properties": {
                       "year": {
-                        "type": "number"
+                        "type": ["number", "null"]
                       },
                       "month": {
-                        "type": "number"
+                        "type": ["number", "null"]
                       }
                     }
                   },
                   "officerId": {
-                    "type": "string"
+                    "type": ["string", "null"]
                   }
                 }
               },
               "company": {
-                "type": "object",
+                "type": ["object", "null"],
                 "properties": {
-                    "countryCode": {"type": "string"},
-                    "companyId": {"type": "string"},
-                    "name": {"type": "string"},
-                    "officialStatus": {"type": "string"},
-                    "simplifiedStatus": {"type": "string"}
+                    "countryCode": {
+                        "type": ["string", "null"]
+                    },
+                    "companyId": {
+                        "type": ["string", "null"]
+                    },
+                    "name": {
+                        "type": ["string", "null"]
+                    },
+                    "officialStatus": {
+                        "type": ["string", "null"]
+                    },
+                    "simplifiedStatus": {
+                        "type": ["string", "null"]
+                    }
                 }
               }
               }

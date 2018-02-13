@@ -39,22 +39,22 @@
             "type": "string"
           },
           "type": {
-            "type": "string"
+            "type": ["string", "null"]
           },
           "person": {
             "type": "object",
             "properties": {
               "honorific": {
-                "type": "string"
+                "type": ["string", "null"]
               },
               "firstName": {
-                "type": "string"
+                "type": ["string", "null"]
               },
               "middleName": {
-                "type": "string"
+                "type": ["string", "null"]
               },
               "lastName": {
-                "type": "string"
+                "type": ["string", "null"]
               },
               "nationalities": {
                 "type": "array",
@@ -71,7 +71,7 @@
                 "type": "object",
                 "properties": {
                   "year": {
-                    "type": "number"
+                    "type": ["number", "null"]
                   },
                   "month": {
                     "type": ["number", "null"]
@@ -84,37 +84,45 @@
             "type": "object",
             "properties": {
                 "countryCode": {
-                    "type": "string"
+                    "type": ["string", "null"]
                 },
                 "companyId": {
-                    "type": "string"
+                    "type": ["string", "null"]
                 },
                 "name": {
-                    "type": "string"
+                    "type": ["string", "null"]
                 },
                 "officialStatus": {
-                    "type": "string"
+                    "type": ["string", "null"]
                 },
                 "simplifiedStatus": {
-                    "type": "string"
+                    "type": ["string", "null"]
                 }
             }
           },
           "isShareholder": {
-            "type": "boolean"
+            "type": ["boolean", "null"]
           },
           "disqualifications": {
             "type": "array",
             "items": {
               "legislation": "object",
               "properties": {
-                  "act": {"type": "string"},
-                  "description": {"type": "string"},
-                  "url": {"type": "string"},
-                "startDate": {"type": "string",
+                  "act": {
+                      "type": ["string", "null"]
+                  },
+                  "description": {
+                      "type": ["string", "null"]
+                  },
+                  "url": {
+                      "type": ["string", "null"]
+                  },
+                "startDate": {
+                    "type": ["string", "null"],
                     "format": "date-time"
                 },
-                "endDate": {"type": "string",
+                "endDate": {
+                    "type": ["string", "null"],
                     "format": "date-time"
                 }
               }
@@ -125,49 +133,51 @@
               "type": "object",
               "properties": {
                 "status": {
-                  "type": "string"
+                  "type": ["string", "null"]
                 },
                 "startDate": {
-                  "type": "string", "format":"date-time"
+                  "type": ["string", "null"],
+                  "format":"date-time"
                 },
                 "endDate": {
-                  "type": "string", "format":"date-time"
+                  "type": ["string", "null"],
+                  "format":"date-time"
                 },
                 "officialRole": {
-                  "type": "string"
+                  "type": ["string", "null"]
                 },
                 "selfDescribedPosition": {
-                  "type": "string"
+                  "type": ["string", "null"]
                 },
                 "serviceAddress": {
                   "type": "object",
                   "properties": {
                     "fullAddress": {
-                      "type": "string"
+                      "type": ["string", "null"]
                     },
                     "structuredAddress": {
                       "type": "object",
                       "properties": {
                         "premises": {
-                          "type": "string"
+                          "type": ["string", "null"]
                         },
                         "thoroughfare": {
-                          "type": "string"
+                          "type": ["string", "null"]
                         },
                         "dependentLocality": {
-                          "type": "string"
+                          "type": ["string", "null"]
                         },
                         "postTown": {
-                          "type": "string"
+                          "type": ["string", "null"]
                         },
                         "county": {
-                          "type": "string"
+                          "type": ["string", "null"]
                         },
                         "postcode": {
-                          "type": "string"
+                          "type": ["string", "null"]
                         },
                         "countryCode": {
-                          "type": "string"
+                          "type": ["string", "null"]
                         }
                       }
                     }

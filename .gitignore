@@ -1,0 +1,7 @@
+config.json
+env/
+tap_duedil.egg-info/
+tap_duedil/__pycache__
+catalog.json
+get_catalog.py
+makefile

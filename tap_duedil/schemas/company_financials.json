@@ -1,0 +1,728 @@
+{
+    "type": "object",
+    "required": [
+        "financials"
+    ],
+    "properties": {
+        "financials": {
+            "type": "array",
+            "items": {
+                "type": ["object", "null"],
+                "properties": {
+                    "accountsDate": {
+                        "type": ["string", "null"],
+                        "format": "date"
+                    },
+                    "reportingPeriod": {
+                        "type": ["integer", "null"],
+                        "format": "int32"
+                    },
+                    "currency": {
+                        "type": ["string", "null"]
+                    },
+                    "consolidatedAccounts": {
+                        "type": ["boolean", "null"]
+                    },
+                    "auditQualification": {
+                        "type": ["string", "null"]
+                    },
+                    "numberOfEmployees": {
+                        "type": ["object", "null"],
+                        "$ref": "financial_value_detailed"
+                    },
+                    "turnover": {
+                        "type": ["object", "null"],
+                        "description": "Revenue generated from business activities",
+                        "$ref": "financial_value_detailed"
+                    },
+                    "costOfSales": {
+                        "type": ["object", "null"],
+                        "description": "Direct costs to the business of generating the Turnover",
+                        "$ref": "financial_value_detailed"
+                    },
+                    "sgaPlusOtherNetCosts": {
+                        "type": ["object", "null"],
+                        "description": "Selling, general, administrative and other non-production costs of operating the business",
+                        "$ref": "financial_value_detailed"
+                    },
+                    "operatingProfit": {
+                        "type": ["object", "null"],
+                        "description": "Profit generated from principal trading activities, calculated by subtracting operating expenses from Gross Profit",
+                        "$ref": "financial_value_detailed"
+                    },
+                    "interestReceivable": {
+                        "type": ["object", "null"],
+                        "$ref": "financial_value_detailed"
+                    },
+                    "interestPayable": {
+                        "type": ["object", "null"],
+                        "$ref": "financial_value_detailed"
+                    },
+                    "preTaxProfit": {
+                        "type": ["object", "null"],
+                        "description": "Profit generated before taxation",
+                        "$ref": "financial_value_detailed"
+                    },
+                    "taxation": {
+                        "type": ["object", "null"],
+                        "description": "A negative number indicates a tax charge to the business",
+                        "$ref": "financial_value_detailed"
+                    },
+                    "postTaxProfit": {
+                        "type": ["object", "null"],
+                        "description": "Profit generated after taxation",
+                        "$ref": "financial_value_detailed"
+                    },
+                    "dividendsPayable": {
+                        "type": ["object", "null"],
+                        "description": "Profit distributed to shareholders",
+                        "$ref": "financial_value_detailed"
+                    },
+                    "retainedProfits": {
+                        "type": ["object", "null"],
+                        "description": "Undistributed profits retained within the business",
+                        "$ref": "financial_value_detailed"
+                    },
+                    "intangibleAssets": {
+                        "type": ["object", "null"],
+                        "description": "A company's fixed assets that have no physical presence, such as copyrights, patents, and brand names",
+                        "$ref": "financial_value_detailed"
+                    },
+                    "tangibleAssets": {
+                        "type": ["object", "null"],
+                        "description": "A company's fixed assets that have a physical presence, such as property and machinery",
+                        "$ref": "financial_value_detailed"
+                    },
+                    "investmentsAndOtherAssets": {
+                        "type": ["object", "null"],
+                        "description": "Investment and other assets held by a company",
+                        "$ref": "financial_value_detailed"
+                    },
+                    "fixedAssets": {
+                        "type": ["object", "null"],
+                        "description": "The sum of Tangible Assets, Intangible Assets and Investments",
+                        "$ref": "financial_value_detailed"
+                    },
+                    "stock": {
+                        "type": ["object", "null"],
+                        "description": "Goods for resale",
+                        "$ref": "financial_value_detailed"
+                    },
+                    "tradeDebtors": {
+                        "type": ["object", "null"],
+                        "description": "Amounts owed by customers",
+                        "$ref": "financial_value_detailed"
+                    },
+                    "otherDebtors": {
+                        "type": ["object", "null"],
+                        "description": "Amounts owed by other sources",
+                        "$ref": "financial_value_detailed"
+                    },
+                    "miscellaneousCurrentAssets": {
+                        "type": ["object", "null"],
+                        "description": "Unspecified assets due within one year of the accounts date",
+                        "$ref": "financial_value_detailed"
+                    },
+                    "cash": {
+                        "type": ["object", "null"],
+                        "description": "Cash in hand and in the bank",
+                        "$ref": "financial_value_detailed"
+                    },
+                    "currentAssets": {
+                        "type": ["object", "null"],
+                        "description": "The sum of Stock, Trade Debtors, Cash and other assets due within one year of the accounts date",
+                        "$ref": "financial_value_detailed"
+                    },
+                    "totalAssets": {
+                        "type": ["object", "null"],
+                        "description": "The value of all assets on the Balance Sheet",
+                        "$ref": "financial_value_detailed"
+                    },
+                    "bankLoansAndOverdrafts": {
+                        "type": ["object", "null"],
+                        "$ref": "financial_value_detailed"
+                    },
+                    "tradeCreditors": {
+                        "type": ["object", "null"],
+                        "description": "Amounts owed to suppliers",
+                        "$ref": "financial_value_detailed"
+                    },
+                    "miscellaneousCurrentLiabilities": {
+                        "type": ["object", "null"],
+                        "description": "Unspecified liabilities due within one year of accounts date",
+                        "$ref": "financial_value_detailed"
+                    },
+                    "otherShortTermFinances": {
+                        "type": ["object", "null"],
+                        "description": "Amounts owed to other sources",
+                        "$ref": "financial_value_detailed"
+                    },
+                    "currentLiabilities": {
+                        "type": ["object", "null"],
+                        "description": "The sum of Trade Creditors and other liabilities due within one year of accounts date",
+                        "$ref": "financial_value_detailed"
+                    },
+                    "contingentLiabilities": {
+                        "type": ["object", "null"],
+                        "description": "A potential obligation dependent on the outcome of a future event",
+                        "$ref": "financial_value_detailed"
+                    },
+                    "otherLongTermFinances": {
+                        "type": ["object", "null"],
+                        "$ref": "financial_value_detailed"
+                    },
+                    "totalLongTermLiabilities": {
+                        "type": ["object", "null"],
+                        "description": "The sum of liabilities due after one year of the accounts date",
+                        "$ref": "financial_value_detailed"
+                    },
+                    "totalLiabilities": {
+                        "type": ["object", "null"],
+                        "description": "The total value of all amounts owed (long term and short term)",
+                        "$ref": "financial_value_detailed"
+                    },
+                    "netAssets": {
+                        "type": ["object", "null"],
+                        "description": "Total Assets less Total Liabilities",
+                        "$ref": "financial_value_detailed"
+                    },
+                    "equityPaidUp": {
+                        "type": ["object", "null"],
+                        "description": "The amount of capital that has been funded by shareholders",
+                        "$ref": "financial_value_detailed"
+                    },
+                    "revaluationReserve": {
+                        "type": ["object", "null"],
+                        "description": "Used when the value of an asset becomes greater than the value at which it was previously carried on the balance sheet",
+                        "$ref": "financial_value_detailed"
+                    },
+                    "sundryReserves": {
+                        "type": ["object", "null"],
+                        "description": "Capital reservers, Share premium account, and other company reserves",
+                        "$ref": "financial_value_detailed"
+                    },
+                    "profitAndLossAccountReserve": {
+                        "type": ["object", "null"],
+                        "description": "The (fully distributable) balance of retained earnings to carry forward",
+                        "$ref": "financial_value_detailed"
+                    },
+                    "shareholderFunds": {
+                        "type": ["object", "null"],
+                        "description": "Equity Payed Up plus reservers; equivalent to Net Assets",
+                        "$ref": "financial_value_detailed"
+                    },
+                    "depreciation": {
+                        "type": ["object", "null"],
+                        "description": "The cost associated with reducing the value of tangible fixed assets over their useful life",
+                        "$ref": "financial_value_detailed"
+                    },
+                    "amortisationOfIntangibles": {
+                        "type": ["object", "null"],
+                        "description": "The cost associated with reducing the value of intangible fixed assets over their useful life",
+                        "$ref": "financial_value_detailed"
+                    },
+                    "ebitda": {
+                        "type": ["object", "null"],
+                        "description": "Earnings before interest, tax, depreciation and amortization",
+                        "$ref": "financial_value_detailed"
+                    },
+                    "workingCapital": {
+                        "type": ["object", "null"],
+                        "description": "Current Assets less Current Liabilities",
+                        "$ref": "financial_value_detailed"
+                    },
+                    "capitalEmployed": {
+                        "type": ["object", "null"],
+                        "description": "Total Assets less Current Liabilities; equivalent to Fixed Assets plus Working Capital",
+                        "$ref": "financial_value_detailed"
+                    },
+                    "wagesAndSalaries": {
+                        "type": ["object", "null"],
+                        "$ref": "financial_value_detailed"
+                    },
+                    "directorsEmoluments": {
+                        "type": ["object", "null"],
+                        "$ref": "financial_value_detailed"
+                    },
+                    "auditFees": {
+                        "type": ["object", "null"],
+                        "$ref": "financial_value_detailed"
+                    },
+                    "bankOverdraftAndLongTermLoans": {
+                        "type": ["object", "null"],
+                        "$ref": "financial_value_detailed"
+                    },
+                    "netCashFlowFromOperations": {
+                        "type": ["object", "null"],
+                        "$ref": "financial_value_detailed"
+                    },
+                    "netCashFlowBeforeFinancing": {
+                        "type": ["object", "null"],
+                        "$ref": "financial_value_detailed"
+                    },
+                    "netCashFlowFromFinancing": {
+                        "type": ["object", "null"],
+                        "$ref": "financial_value_detailed"
+                    },
+                    "increaseInCash": {
+                        "type": ["object", "null"],
+                        "$ref": "financial_value_detailed"
+                    },
+                    "debtorDays": {
+                        "type": ["object", "null"],
+                        "description": "Trade Debtors expressed as number of days of Turnover",
+                        "$ref": "financial_value_detailed"
+                    },
+                    "exports": {
+                        "type": ["object", "null"],
+                        "description": "Turnover from overseas (often reported in the notes to the financial accounts)",
+                        "$ref": "financial_value_detailed"
+                    },
+                    "grossMarginPercentage": {
+                        "type": ["object", "null"],
+                        "description": "Gross Profit expressed as a percentage of Turnover",
+                        "required": [
+                            "value"
+                        ],
+                        "additionalProperties": false,
+                        "properties": {
+                            "value": {
+                                "type": ["number", "null"],
+                                "format": "float"
+                            }
+                        }
+                    },
+                    "operatingProfitMarginPercentage": {
+                        "type": ["object", "null"],
+                        "description": "Operating Profit expressed as a percentage of Turnover",
+                        "required": [
+                            "value"
+                        ],
+                        "additionalProperties": false,
+                        "properties": {
+                            "value": {
+                                "type": ["number", "null"],
+                                "format": "float"
+                            }
+                        }
+                    },
+                    "ebitdaMarginPercentage": {
+                        "type": ["object", "null"],
+                        "description": "EBITDA expressed as a percentage of Turnover",
+                        "required": [
+                            "value"
+                        ],
+                        "additionalProperties": false,
+                        "properties": {
+                            "value": {
+                                "type": ["number", "null"],
+                                "format": "float"
+                            }
+                        }
+                    },
+                    "preTaxProfitMarginPercentage": {
+                        "type": ["object", "null"],
+                        "description": "Pre-tax Profit expressed as a percentage of Turnover",
+                        "required": [
+                            "value"
+                        ],
+                        "additionalProperties": false,
+                        "properties": {
+                            "value": {
+                                "type": ["number", "null"],
+                                "format": "float"
+                            }
+                        }
+                    },
+                    "netMarginPercentage": {
+                        "type": ["object", "null"],
+                        "description": "Post-tax Profit expressed as a percentage of Turnover",
+                        "required": [
+                            "value"
+                        ],
+                        "additionalProperties": false,
+                        "properties": {
+                            "value": {
+                                "type": ["number", "null"],
+                                "format": "float"
+                            }
+                        }
+                    },
+                    "returnOnAssetsPercentage": {
+                        "type": ["object", "null"],
+                        "description": "Operating Profit expressed as a percentage of average Total Assets",
+                        "required": [
+                            "value"
+                        ],
+                        "additionalProperties": false,
+                        "properties": {
+                            "value": {
+                                "type": ["number", "null"],
+                                "format": "float"
+                            }
+                        }
+                    },
+                    "returnOnCapitalEmployedPercentage": {
+                        "type": ["object", "null"],
+                        "description": "Operating Profit expressed as a percentage of average Capital Employed",
+                        "required": [
+                            "value"
+                        ],
+                        "additionalProperties": false,
+                        "properties": {
+                            "value": {
+                                "type": ["number", "null"],
+                                "format": "float"
+                            }
+                        }
+                    },
+                    "returnOnEquity": {
+                        "type": ["object", "null"],
+                        "description": "Post-tax Profit expressed as a percentage of average Shareholder Funds",
+                        "required": [
+                            "value"
+                        ],
+                        "additionalProperties": false,
+                        "properties": {
+                            "value": {
+                                "type": ["number", "null"],
+                                "format": "float"
+                            }
+                        }
+                    },
+                    "currentRatio": {
+                        "type": ["object", "null"],
+                        "description": "Current Assets divided by Current Liabilities",
+                        "required": [
+                            "value"
+                        ],
+                        "additionalProperties": false,
+                        "properties": {
+                            "value": {
+                                "type": ["number", "null"],
+                                "format": "float"
+                            }
+                        }
+                    },
+                    "cashToCurrentLiabilitiesRatio": {
+                        "type": ["object", "null"],
+                        "description": "Cash divided by Current Liabilities",
+                        "required": [
+                            "value"
+                        ],
+                        "additionalProperties": false,
+                        "properties": {
+                            "value": {
+                                "type": ["number", "null"],
+                                "format": "float"
+                            }
+                        }
+                    },
+                    "cashToTotalAssetsPercentage": {
+                        "type": ["object", "null"],
+                        "description": "Cash expressed as a percentage of Total Assets",
+                        "required": [
+                            "value"
+                        ],
+                        "additionalProperties": false,
+                        "properties": {
+                            "value": {
+                                "type": ["number", "null"],
+                                "format": "float"
+                            }
+                        }
+                    },
+                    "liquidityRatio": {
+                        "type": ["object", "null"],
+                        "description": "Current Assets less Stock divided by Current Liabilities",
+                        "required": [
+                            "value"
+                        ],
+                        "additionalProperties": false,
+                        "properties": {
+                            "value": {
+                                "type": ["number", "null"],
+                                "format": "float"
+                            }
+                        }
+                    },
+                    "gearingPercentageOnLiabilityBasis": {
+                        "type": ["object", "null"],
+                        "description": "Total Liabilities expressed as a percentage of Shareholder Funds",
+                        "required": [
+                            "value"
+                        ],
+                        "additionalProperties": false,
+                        "properties": {
+                            "value": {
+                                "type": ["number", "null"],
+                                "format": "float"
+                            }
+                        }
+                    },
+                    "gearingPercentageOnGrossDebtBasis": {
+                        "type": ["object", "null"],
+                        "description": "Gross Debt expressed as a percentage of Shareholder Funds; Gross Debt = Bank Loans & Overdrafts + Other Short Term Finances + Total Long Term Liabilities",
+                        "required": [
+                            "value"
+                        ],
+                        "additionalProperties": false,
+                        "properties": {
+                            "value": {
+                                "type": ["number", "null"],
+                                "format": "float"
+                            }
+                        }
+                    },
+                    "gearingPercentageOnNetDebtBasis": {
+                        "type": ["object", "null"],
+                        "description": "Net Debt expressed as a percentage of Shareholder Funds; Net Debt = Bank Loans & Overdrafts + Other Short Term Finances + Total Long Term Liabilities - Cash",
+                        "required": [
+                            "value"
+                        ],
+                        "additionalProperties": false,
+                        "properties": {
+                            "value": {
+                                "type": ["number", "null"],
+                                "format": "float"
+                            }
+                        }
+                    },
+                    "debtToCapitalPercentage": {
+                        "type": ["object", "null"],
+                        "description": "Total Liabilities expressed as a percentage of Total Assets",
+                        "required": [
+                            "value"
+                        ],
+                        "additionalProperties": false,
+                        "properties": {
+                            "value": {
+                                "type": ["number", "null"],
+                                "format": "float"
+                            }
+                        }
+                    },
+                    "inventoryTurnoverRatio": {
+                        "type": ["object", "null"],
+                        "description": "The number of times Stock is sold and replaced in a year (Turnover divided by Stock)",
+                        "required": [
+                            "value"
+                        ],
+                        "additionalProperties": false,
+                        "properties": {
+                            "value": {
+                                "type": ["number", "null"],
+                                "format": "float"
+                            }
+                        }
+                    },
+                    "cashToTurnoverRatio": {
+                        "type": ["object", "null"],
+                        "description": "Average cash for the period divided by annualised Turnover",
+                        "required": [
+                            "value"
+                        ],
+                        "additionalProperties": false,
+                        "properties": {
+                            "value": {
+                                "type": ["number", "null"],
+                                "format": "float"
+                            }
+                        }
+                    },
+                    "cashToTurnoverPercentage": {
+                        "type": ["object", "null"],
+                        "description": "Average cash for the period expressed as a percentage of annualised Turnover",
+                        "required": [
+                            "value"
+                        ],
+                        "additionalProperties": false,
+                        "properties": {
+                            "value": {
+                                "type": ["number", "null"],
+                                "format": "float"
+                            }
+                        }
+                    },
+                    "daysInventoryOutstanding": {
+                        "type": ["object", "null"],
+                        "description": "Average Stock / (Cost of Sales per day)",
+                        "required": [
+                            "value"
+                        ],
+                        "additionalProperties": false,
+                        "properties": {
+                            "value": {
+                                "type": ["number", "null"],
+                                "format": "float"
+                            }
+                        }
+                    },
+                    "daysSalesOutstanding": {
+                        "type": ["object", "null"],
+                        "description": "Average Trade Debtors / (Turnover per day)",
+                        "required": [
+                            "value"
+                        ],
+                        "additionalProperties": false,
+                        "properties": {
+                            "value": {
+                                "type": ["number", "null"],
+                                "format": "float"
+                            }
+                        }
+                    },
+                    "daysPayableOutstanding": {
+                        "type": ["object", "null"],
+                        "description": "Average Trade Creditors / (Cost of Sales per day)",
+                        "required": [
+                            "value"
+                        ],
+                        "additionalProperties": false,
+                        "properties": {
+                            "value": {
+                                "type": ["number", "null"],
+                                "format": "float"
+                            }
+                        }
+                    },
+                    "cashConversionCycle": {
+                        "type": ["object", "null"],
+                        "description": "Days Inventory Outstanding + Days Sales Outstanding - Days Payable Outstanding",
+                        "required": [
+                            "value"
+                        ],
+                        "additionalProperties": false,
+                        "properties": {
+                            "value": {
+                                "type": ["number", "null"],
+                                "format": "float"
+                            }
+                        }
+                    },
+                    "revenuePerEmployee": {
+                        "type": ["object", "null"],
+                        "description": "Turnover per employee (annualised)",
+                        "required": [
+                            "value"
+                        ],
+                        "additionalProperties": false,
+                        "properties": {
+                            "value": {
+                                "type": ["number", "null"],
+                                "format": "float"
+                            }
+                        }
+                    },
+                    "humanCapitalValueAdded": {
+                        "type": ["object", "null"],
+                        "description": "Operating Profit plus Wages per employee (annualised)",
+                        "required": [
+                            "value"
+                        ],
+                        "additionalProperties": false,
+                        "properties": {
+                            "value": {
+                                "type": ["number", "null"],
+                                "format": "float"
+                            }
+                        }
+                    },
+                    "interestCoverageRatio": {
+                        "type": ["object", "null"],
+                        "description": "Operating Profit divided by Interest Payable",
+                        "required": [
+                            "value"
+                        ],
+                        "additionalProperties": false,
+                        "properties": {
+                            "value": {
+                                "type": ["number", "null"],
+                                "format": "float"
+                            }
+                        }
+                    },
+                    "netDebtToEBITDARatio": {
+                        "type": ["object", "null"],
+                        "description": "Net Debt divided by annualised EBITDA; Net Debt = Bank Loans & Overdrafts + Other Short Term Finances + Total Long Term Liabilities - Cash",
+                        "required": [
+                            "value"
+                        ],
+                        "additionalProperties": false,
+                        "properties": {
+                            "value": {
+                                "type": ["number", "null"],
+                                "format": "float"
+                            }
+                        }
+                    },
+                    "cfoToSalesRatio": {
+                        "type": ["object", "null"],
+                        "description": "Net Cash Flow from Operations divided by Turnover",
+                        "required": [
+                            "value"
+                        ],
+                        "additionalProperties": false,
+                        "properties": {
+                            "value": {
+                                "type": ["number", "null"],
+                                "format": "float"
+                            }
+                        }
+                    },
+                    "auditor": {
+                        "type": ["object", "null"],
+                        "required": [
+                            "sourceName"
+                        ],
+                        "additionalProperties": false,
+                        "properties": {
+                            "sourceName": {
+                                "type": ["string", "null"]
+                            }
+                        }
+                    },
+                    "jointAuditor": {
+                        "type": ["object", "null"],
+                        "required": [
+                            "sourceName"
+                        ],
+                        "additionalProperties": false,
+                        "properties": {
+                            "sourceName": {
+                                "type": ["string", "null"]
+                            }
+                        }
+                    },
+                    "solicitor": {
+                        "type": ["object", "null"],
+                        "required": [
+                            "sourceName"
+                        ],
+                        "additionalProperties": false,
+                        "properties": {
+                            "sourceName": {
+                                "type": ["string", "null"]
+                            }
+                        }
+                    },
+                    "accountant": {
+                        "type": ["object", "null"],
+                        "required": [
+                            "sourceName"
+                        ],
+                        "additionalProperties": false,
+                        "properties": {
+                            "sourceName": {
+                                "type": ["string", "null"]
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "tap_schema_dependencies": [
+        "financial_value_detailed"
+    ]
+}

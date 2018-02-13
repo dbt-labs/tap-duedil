@@ -1,0 +1,222 @@
+{
+    "type": [
+        "object"
+    ],
+    "properties": {
+        "countryCode": {
+            "type": [
+                "string"
+            ]
+        },
+        "companyId": {
+            "type": [
+                "string"
+            ]
+        },
+        "name": {
+            "type": [
+                "string"
+            ]
+        },
+        "type": {
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "incorporationCountry": {
+            "type": [
+                "string"
+            ]
+        },
+        "incorporationDate": {
+            "type": [
+                "string",
+                "null"
+            ],
+            "format": "date-time"
+        },
+        "officialStatus": {
+            "type": [
+                "string"
+            ]
+        },
+        "simplifiedStatus": {
+            "type": [
+                "string"
+            ]
+        },
+        "numberOfEmployees": {
+            "type": [
+                "integer",
+                "null"
+            ]
+        },
+        "primaryWebsite": {
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "registeredAddress": {
+            "type": [
+                "object",
+                "null"
+            ],
+            "properties": {
+                "fullAddress": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "structuredAddress": {
+                    "type": [
+                        "object",
+                        "null"
+                    ],
+                    "properties": {
+                        "premises": {
+                            "type": [
+                                "string",
+                                "null"
+                            ]
+                        },
+                        "thoroughfare": {
+                            "type": [
+                                "string",
+                                "null"
+                            ]
+                        },
+                        "dependentLocality": {
+                            "type": [
+                                "string",
+                                "null"
+                            ]
+                        },
+                        "postTown": {
+                            "type": [
+                                "string",
+                                "null"
+                            ]
+                        },
+                        "county": {
+                            "type": [
+                                "string",
+                                "null"
+                            ]
+                        },
+                        "postcode": {
+                            "type": [
+                                "string",
+                                "null"
+                            ]
+                        },
+                        "countryCode": {
+                            "type": [
+                                "string",
+                                "null"
+                            ]
+                        }
+                    },
+                    "geolocation": {
+                        "type": "object",
+                        "properties": {
+                            "latitude": {
+                                "type": [
+                                    "number",
+                                    "null"
+                                ]
+                            },
+                            "longitude": {
+                                "type": [
+                                    "number",
+                                    "null"
+                                ]
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "charitableIdentitiesCount": {
+            "type": [
+                "number",
+                "null"
+            ]
+        },
+        "accounts": {
+            "type": "object",
+            "properties": {
+                "filingType": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "currency": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "latestAccountsDate": {
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "format": "date-time"
+                },
+                "consolidatedAccounts": {
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                },
+                "nextAccountsDueDate": {
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "format": "date-time"
+                }
+            }
+        },
+        "financialSummary": {
+            "type": "object",
+            "properties": {
+                "turnover": {
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "ebitda": {
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "postTaxProfit": {
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "totalAssets": {
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "netAssets": {
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                }
+            }
+        }
+    },
+    "additionalProperties": false
+}

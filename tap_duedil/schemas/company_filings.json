@@ -21,19 +21,23 @@
         }
       }
     },
-    "descriptions": {
+    "filings": {
       "type": "array",
       "items": {
-        "type": "object",
+        "type": ["object", "null"],
         "properties": {
-          "text": {
-            "type": "string"
+          "date": {
+            "type": ["string", "null"],
+            "format": "date-time"
           },
-          "url": {
-            "type": "string"
+          "code": {
+            "type": ["string", "null"]
           },
-          "source": {
-            "type": "string"
+          "category": {
+            "type": ["string", "null"]
+          },
+          "description": {
+            "type": ["string", "null"]
           }
         }
       }

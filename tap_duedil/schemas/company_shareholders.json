@@ -1,0 +1,308 @@
+{
+    "type": "object",
+    "properties": {
+        "countryCode": {
+            "type": "string"
+        },
+        "companyId": {
+            "type": "string"
+        },
+        "pagination": {
+            "type": "object",
+            "properties": {
+                "offset": {
+                    "type": "number"
+                },
+                "limit": {
+                    "type": "number"
+                },
+                "total": {
+                    "type": "number"
+                }
+            }
+        },
+        "totalCompanyShares": {
+            "type": "number"
+        },
+        "shareholders": {
+            "type": "array",
+            "items": {
+                "type": ["object", "null"],
+                "properties": {
+                    "sourceName": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    },
+                    "totalShareholding": {
+                        "type": [
+                            "number",
+                            "null"
+                        ]
+                    },
+                    "totalShareholdingPercentage": {
+                        "type": [
+                            "number",
+                            "null"
+                        ]
+                    },
+                    "shareholdings": {
+                        "type": "array",
+                        "items": {
+                            "type": ["object", "null"],
+                            "properties": {
+                                "class": {
+                                    "type": [
+                                        "string",
+                                        "null"
+                                    ]
+                                },
+                                "numberOfShares": {
+                                    "type": [
+                                        "number",
+                                        "null"
+                                    ]
+                                },
+                                "percentageOfShares": {
+                                    "type": [
+                                        "number",
+                                        "null"
+                                    ]
+                                },
+                                "nominalValue": {
+                                    "type": ["object", "null"],
+                                    "properties": {
+                                        "value": {
+                                            "type": [
+                                                "number",
+                                                "null"
+                                            ]
+                                        },
+                                        "currency": {
+                                            "type": [
+                                                "string",
+                                                "null"
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "exactMatches": {
+                        "type": "array",
+                        "items": {
+                            "type": ["object", "null"],
+                            "properties": {
+                                "type": {
+                                    "type": [
+                                        "string",
+                                        "null"
+                                    ]
+                                },
+                                "person": {
+                                    "type": ["object", "null"],
+                                    "properties": {
+                                        "honorific": {
+                                            "type": [
+                                                "string",
+                                                "null"
+                                            ]
+                                        },
+                                        "firstName": {
+                                            "type": [
+                                                "string",
+                                                "null"
+                                            ]
+                                        },
+                                        "middleName": {
+                                            "type": [
+                                                "string",
+                                                "null"
+                                            ]
+                                        },
+                                        "lastName": {
+                                            "type": [
+                                                "string",
+                                                "null"
+                                            ]
+                                        },
+                                        "nationalities": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": ["object", "null"],
+                                                "properties": {
+                                                    "demonym": {
+                                                        "type": [
+                                                            "string",
+                                                            "null"
+                                                        ]
+                                                    },
+                                                    "countryCode": {
+                                                        "type": [
+                                                            "string",
+                                                            "null"
+                                                        ]
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "dateOfBirth": {
+                                            "type": ["object", "null"],
+                                            "properties": {
+                                                "year": {
+                                                    "type": [
+                                                        "number",
+                                                        "null"
+                                                    ]
+                                                },
+                                                "month": {
+                                                    "type": [
+                                                        "number",
+                                                        "null"
+                                                    ]
+                                                }
+                                            }
+                                        },
+                                        "officerId": {
+                                            "type": [
+                                                "string",
+                                                "null"
+                                            ]
+                                        }
+                                    }
+                                },
+                                "company": {
+                                    "type": ["object", "null"],
+                                    "properties": {
+                                        "countryCode": {
+                                            "type": [
+                                                "string",
+                                                "null"
+                                            ]
+                                        },
+                                        "companyId": {
+                                            "type": [
+                                                "string",
+                                                "null"
+                                            ]
+                                        },
+                                        "name": {
+                                            "type": [
+                                                "string",
+                                                "null"
+                                            ]
+                                        },
+                                        "officialStatus": {
+                                            "type": [
+                                                "string",
+                                                "null"
+                                            ]
+                                        },
+                                        "simplifiedStatus": {
+                                            "type": [
+                                                "string",
+                                                "null"
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "possibleMatches": {
+                        "type": "array",
+                        "items": {
+                            "type": [
+                                "string",
+                                "null"
+                            ],
+                            "person": {
+                                "type": ["object", "null"],
+                                "properties": {
+                                    "honorific": {
+                                        "type": [
+                                            "string",
+                                            "null"
+                                        ]
+                                    },
+                                    "firstName": {
+                                        "type": [
+                                            "string",
+                                            "null"
+                                        ]
+                                    },
+                                    "middleName": {
+                                        "type": [
+                                            "string",
+                                            "null"
+                                        ]
+                                    },
+                                    "lastName": {
+                                        "type": [
+                                            "string",
+                                            "null"
+                                        ]
+                                    },
+                                    "nationalities": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": ["object", "null"],
+                                            "properties": {
+                                                "demonym": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ]
+                                                },
+                                                "countryCode": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ]
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "dateOfBirth": {
+                                        "type": ["object", "null"],
+                                        "properties": {
+                                            "year": {
+                                                "type": [
+                                                    "number",
+                                                    "null"
+                                                ]
+                                            },
+                                            "month": {
+                                                "type": [
+                                                    "number",
+                                                    "null"
+                                                ]
+                                            }
+                                        }
+                                    },
+                                    "officerId": {
+                                        "type": [
+                                            "string",
+                                            "null"
+                                        ]
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "notMatched": {
+                        "type": ["object", "null"],
+                        "properties": {
+                            "suspectedType": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "additionalProperties": false
+}
