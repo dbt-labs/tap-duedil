@@ -1,195 +1,305 @@
 {
-  "type": "object",
-  "properties": {
-    "countryCode": {
-      "type": "string"
-    },
-    "companyId": {
-      "type": "string"
-    },
-    "pagination": {
-      "type": "object",
-      "properties": {
-        "offset": {
-          "type": "number"
-        },
-        "limit": {
-          "type": "number"
-        },
-        "total": {
-          "type": "number"
-        }
-      }
-    },
-    "filters": {
-      "type": "object",
-      "properties": {
-          "appointmentStatuses": {
-              "type": "array",
-              "items": {"type": "string"}
-          }
-      }
-    },
-    "officers": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "officerId": {
+    "type": "object",
+    "properties": {
+        "countryCode": {
             "type": "string"
-          },
-          "type": {
-            "type": ["string", "null"]
-          },
-          "person": {
+        },
+        "companyId": {
+            "type": "string"
+        },
+        "pagination": {
             "type": "object",
             "properties": {
-              "honorific": {
-                "type": ["string", "null"]
-              },
-              "firstName": {
-                "type": ["string", "null"]
-              },
-              "middleName": {
-                "type": ["string", "null"]
-              },
-              "lastName": {
-                "type": ["string", "null"]
-              },
-              "nationalities": {
-                "type": "array",
-                "items": {
-                    "demonym": {
-                     "type": ["string", "null"]
+                "offset": {
+                    "type": "number"
                 },
-                "countryCode": {
-                    "type": ["string", "null"]
+                "limit": {
+                    "type": "number"
+                },
+                "total": {
+                    "type": "number"
                 }
-              }
-          },
-              "dateOfBirth": {
+            }
+        },
+        "filters": {
+            "type": "object",
+            "properties": {
+                "appointmentStatuses": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "officers": {
+            "type": "array",
+            "items": {
                 "type": "object",
                 "properties": {
-                  "year": {
-                    "type": ["number", "null"]
-                  },
-                  "month": {
-                    "type": ["number", "null"]
-                  }
-                }
-              }
-            }
-          },
-          "company": {
-            "type": "object",
-            "properties": {
-                "countryCode": {
-                    "type": ["string", "null"]
-                },
-                "companyId": {
-                    "type": ["string", "null"]
-                },
-                "name": {
-                    "type": ["string", "null"]
-                },
-                "officialStatus": {
-                    "type": ["string", "null"]
-                },
-                "simplifiedStatus": {
-                    "type": ["string", "null"]
-                }
-            }
-          },
-          "isShareholder": {
-            "type": ["boolean", "null"]
-          },
-          "disqualifications": {
-            "type": "array",
-            "items": {
-              "legislation": "object",
-              "properties": {
-                  "act": {
-                      "type": ["string", "null"]
-                  },
-                  "description": {
-                      "type": ["string", "null"]
-                  },
-                  "url": {
-                      "type": ["string", "null"]
-                  },
-                "startDate": {
-                    "type": ["string", "null"],
-                    "format": "date-time"
-                },
-                "endDate": {
-                    "type": ["string", "null"],
-                    "format": "date-time"
-                }
-              }
-          },
-          "appointments": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "status": {
-                  "type": ["string", "null"]
-                },
-                "startDate": {
-                  "type": ["string", "null"],
-                  "format":"date-time"
-                },
-                "endDate": {
-                  "type": ["string", "null"],
-                  "format":"date-time"
-                },
-                "officialRole": {
-                  "type": ["string", "null"]
-                },
-                "selfDescribedPosition": {
-                  "type": ["string", "null"]
-                },
-                "serviceAddress": {
-                  "type": "object",
-                  "properties": {
-                    "fullAddress": {
-                      "type": ["string", "null"]
+                    "officerId": {
+                        "type": "string"
                     },
-                    "structuredAddress": {
-                      "type": "object",
-                      "properties": {
-                        "premises": {
-                          "type": ["string", "null"]
-                        },
-                        "thoroughfare": {
-                          "type": ["string", "null"]
-                        },
-                        "dependentLocality": {
-                          "type": ["string", "null"]
-                        },
-                        "postTown": {
-                          "type": ["string", "null"]
-                        },
-                        "county": {
-                          "type": ["string", "null"]
-                        },
-                        "postcode": {
-                          "type": ["string", "null"]
-                        },
-                        "countryCode": {
-                          "type": ["string", "null"]
+                    "type": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    },
+                    "person": {
+                        "type": [
+                            "object",
+                            "null"
+                        ],
+                        "properties": {
+                            "honorific": {
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
+                            },
+                            "firstName": {
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
+                            },
+                            "middleName": {
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
+                            },
+                            "lastName": {
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
+                            },
+                            "nationalities": {
+                                "type": "array",
+                                "items": {
+                                    "demonym": {
+                                        "type": [
+                                            "string",
+                                            "null"
+                                        ]
+                                    },
+                                    "countryCode": {
+                                        "type": [
+                                            "string",
+                                            "null"
+                                        ]
+                                    }
+                                }
+                            },
+                            "dateOfBirth": {
+                                "type": [
+                                    "object",
+                                    "null"
+                                ],
+                                "properties": {
+                                    "year": {
+                                        "type": [
+                                            "number",
+                                            "null"
+                                        ]
+                                    },
+                                    "month": {
+                                        "type": [
+                                            "number",
+                                            "null"
+                                        ]
+                                    }
+                                }
+                            }
                         }
-                      }
+                    },
+                    "company": {
+                        "type": [
+                            "object",
+                            "null"
+                        ],
+                        "properties": {
+                            "countryCode": {
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
+                            },
+                            "companyId": {
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
+                            },
+                            "name": {
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
+                            },
+                            "officialStatus": {
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
+                            },
+                            "simplifiedStatus": {
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
+                            }
+                        }
+                    },
+                    "isShareholder": {
+                        "type": [
+                            "boolean",
+                            "null"
+                        ]
+                    },
+                    "disqualifications": {
+                        "type": "array",
+                        "items": {
+                            "legislation": "object",
+                            "properties": {
+                                "act": {
+                                    "type": [
+                                        "string",
+                                        "null"
+                                    ]
+                                },
+                                "description": {
+                                    "type": [
+                                        "string",
+                                        "null"
+                                    ]
+                                },
+                                "url": {
+                                    "type": [
+                                        "string",
+                                        "null"
+                                    ]
+                                },
+                                "startDate": {
+                                    "type": [
+                                        "string",
+                                        "null"
+                                    ],
+                                    "format": "date-time"
+                                },
+                                "endDate": {
+                                    "type": [
+                                        "string",
+                                        "null"
+                                    ],
+                                    "format": "date-time"
+                                }
+                            }
+                        },
+                        "appointments": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "status": {
+                                        "type": [
+                                            "string",
+                                            "null"
+                                        ]
+                                    },
+                                    "startDate": {
+                                        "type": [
+                                            "string",
+                                            "null"
+                                        ],
+                                        "format": "date-time"
+                                    },
+                                    "endDate": {
+                                        "type": [
+                                            "string",
+                                            "null"
+                                        ],
+                                        "format": "date-time"
+                                    },
+                                    "officialRole": {
+                                        "type": [
+                                            "string",
+                                            "null"
+                                        ]
+                                    },
+                                    "selfDescribedPosition": {
+                                        "type": [
+                                            "string",
+                                            "null"
+                                        ]
+                                    },
+                                    "serviceAddress": {
+                                        "type": "object",
+                                        "properties": {
+                                            "fullAddress": {
+                                                "type": [
+                                                    "string",
+                                                    "null"
+                                                ]
+                                            },
+                                            "structuredAddress": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "premises": {
+                                                        "type": [
+                                                            "string",
+                                                            "null"
+                                                        ]
+                                                    },
+                                                    "thoroughfare": {
+                                                        "type": [
+                                                            "string",
+                                                            "null"
+                                                        ]
+                                                    },
+                                                    "dependentLocality": {
+                                                        "type": [
+                                                            "string",
+                                                            "null"
+                                                        ]
+                                                    },
+                                                    "postTown": {
+                                                        "type": [
+                                                            "string",
+                                                            "null"
+                                                        ]
+                                                    },
+                                                    "county": {
+                                                        "type": [
+                                                            "string",
+                                                            "null"
+                                                        ]
+                                                    },
+                                                    "postcode": {
+                                                        "type": [
+                                                            "string",
+                                                            "null"
+                                                        ]
+                                                    },
+                                                    "countryCode": {
+                                                        "type": [
+                                                            "string",
+                                                            "null"
+                                                        ]
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
-                    }
-                  }
                 }
-              }
             }
-          }
         }
-      }
-  }
-},
-"additionalProperties": false
+    },
+    "additionalProperties": false
 }
