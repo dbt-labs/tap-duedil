@@ -100,8 +100,8 @@ $ tap-duedil sync -c config.json -p catalog.json --companies companies.txt
 
 The output of `tap-duedil sync ....` can be piped to `target-stitch` to load the data into your warehouse.
 
-A subset of streams can be selected using the `--streams` argument to `tap-duedul sync`. For more information 
-on these parameters, run `tap-duedul sync -h`
+A subset of streams can be selected using the `--streams` argument to `tap-duedil sync`. For more information 
+on these parameters, run `tap-duedil sync -h`
 
 ---
 
