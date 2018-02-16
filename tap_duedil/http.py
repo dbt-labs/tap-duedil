@@ -3,6 +3,7 @@ import singer
 from singer import metrics
 import backoff
 import json
+import time
 
 LOGGER = singer.get_logger()
 BASE_URL = "https://duedil.io/v4/"
@@ -66,13 +67,24 @@ class Client(object):
             return None
         if response.status_code == 400:
             LOGGER.fatal(response.json())
+        if tap_stream_id == 'company_query' and response.status_code == 500:
+            LOGGER.info('POSSIBLE CACHE MISS - RECEIVED 500 ERROR. Retrying!')
+            raise RateLimitException()
 
         response.raise_for_status()
         return response.json()
 
     def GET(self, request_kwargs, *args, **kwargs):
         req = self.create_get_request(**request_kwargs)
-        return self.request_with_handling(req, *args, **kwargs)
+        try:
+            return self.request_with_handling(req, *args, **kwargs)
+        except Exception as e:
+            LOGGER.error(e)
+            LOGGER.info("Unhandled exception - Trying again")
+            time.sleep(5)
+            return self.request_with_handling(req, *args, **kwargs)
+
+
 
     def POST(self, request_kwargs, *args, **kwargs):
         req = self.create_post_request(**request_kwargs)

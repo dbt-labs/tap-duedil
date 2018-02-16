@@ -1,0 +1,15 @@
+{
+    "type": "object",
+    "additionalProperties": false,
+    "minProperties": 1,
+    "properties": {
+        "value": {
+            "type": "number",
+            "format": "integer"
+        },
+        "deltaPercentage": {
+            "type": "number",
+            "format": "float"
+        }
+    }
+}

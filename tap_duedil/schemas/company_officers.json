@@ -7,31 +7,6 @@
         "companyId": {
             "type": "string"
         },
-        "pagination": {
-            "type": "object",
-            "properties": {
-                "offset": {
-                    "type": "number"
-                },
-                "limit": {
-                    "type": "number"
-                },
-                "total": {
-                    "type": "number"
-                }
-            }
-        },
-        "filters": {
-            "type": "object",
-            "properties": {
-                "appointmentStatuses": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                }
-            }
-        },
         "officers": {
             "type": "array",
             "items": {
@@ -186,15 +161,13 @@
                                     "type": [
                                         "string",
                                         "null"
-                                    ],
-                                    "format": "date-time"
+                                    ]
                                 },
                                 "endDate": {
                                     "type": [
                                         "string",
                                         "null"
-                                    ],
-                                    "format": "date-time"
+                                    ]
                                 }
                             }
                         },

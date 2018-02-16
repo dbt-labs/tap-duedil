@@ -4,6 +4,12 @@
         "financials"
     ],
     "properties": {
+        "countryCode": {
+            "type": "string"
+        },
+        "companyId": {
+            "type": "string"
+        },
         "financials": {
             "type": "array",
             "items": {

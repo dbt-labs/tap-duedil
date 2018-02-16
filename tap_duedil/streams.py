@@ -1,6 +1,6 @@
 import singer
 from singer import metrics, transform
-import pendulum  # TODO
+import datetime
 
 LOGGER = singer.get_logger()
 
@@ -17,12 +17,6 @@ class Stream(object):
         self.returns_collection = returns_collection
         self.collection_key = collection_key
         self.custom_formatter = custom_formatter or (lambda x: x)
-        self.start_date = None
-
-    def get_start_date(self, ctx, key):
-        if not self.start_date:
-            self.start_date = ctx.get_bookmark([self.tap_stream_id, key])
-        return self.start_date
 
     def metrics(self, records):
         with metrics.record_counter(self.tap_stream_id) as counter:
@@ -44,50 +38,47 @@ class Stream(object):
 
 
 class CompanyQuery(Stream):
-    def get_params(self, ctx, page):
+    def get_params(self, ctx, offset, query):
         return {
             "query": {
-                "offset": page,
-                "limit": 5, # TODO
+                "offset": offset,
+                "limit": 50
             },
-            "body": {
-                "criteria": {
-                    "countryCodes": {
-                        "values": ["GB"]
-                    }
-                }
-            }
+
+            "body": query
         }
 
-    def _sync(self, ctx):
+
+    def _sync(self, ctx, query):
         schema = ctx.catalog.get_stream(self.tap_stream_id).schema.to_dict()
 
-        page = 0
         all_companies = []
+        offset = 0
         while True:
-            params = self.get_params(ctx, page)
+            params = self.get_params(ctx, offset, query)
             data = {"path": self.path, "data": params}
             resp = ctx.client.POST(data, self.tap_stream_id)
-
-            resp_filters = resp.pop('filters')
             resp_companies = resp.pop('companies')
 
-            companies = [transform({"filters": resp_filters, "companies": [company]}, schema)
-                         for company in resp_companies]
+            companies = [transform(company, schema) for company in resp_companies]
             all_companies.extend(companies)
 
-            if len(companies) == 0 or page >= 0:  # TODO
+            if len(companies) == 0:
                 break
 
-            page += 1
+            offset += resp['pagination']['limit']
+            total = resp['pagination']['total']
+            LOGGER.info("Queried offset {} of {} -- got {} companies.".format(offset, total, len(companies)))
 
         return all_companies
 
     def sync(self, ctx):
         self.write_records(ctx.cache['companies'])
 
-    def fetch_into_cache(self, ctx):
-        companies = self._sync(ctx)
+    def fetch_into_cache(self, ctx, query):
+        ctx.update_company_query_page_bookmark([self.tap_stream_id, 'company_offset'])
+
+        companies = self._sync(ctx, query)
         ctx.cache["companies"] = companies
 
 
@@ -100,9 +91,9 @@ class CompanyInfo(Stream):
                 .replace(':company_id', company_id) \
                 .replace(':country_code', country_code)
 
-    def get_params(self):
+    def get_params(self, offset=0):
         return {
-            "offset": 0,
+            "offset": int(offset),
             "limit": 50
         }
 
@@ -110,57 +101,73 @@ class CompanyInfo(Stream):
     def _sync(self, ctx, company):
         schema = ctx.catalog.get_stream(self.tap_stream_id).schema.to_dict()
         path = self.get_path(company)
+
         params = self.get_params()
-        resp = ctx.client.GET({"path": path, "params": params}, self.tap_stream_id)
-        raw_record = self.format_response(resp)
-        record = transform(raw_record, schema)
-        self.write_records([record])
+        while True:
+            resp = ctx.client.GET({"path": path, "params": params}, self.tap_stream_id)
+            raw_record = self.format_response(resp)
+            record = transform(raw_record, schema)
+            self.write_records([record])
 
-        if 'pagination' in record:
-            # TODO
-            if record['pagination']['total'] > record['pagination']['limit']:
-                import ipdb; ipdb.set_trace()
-                raise RuntimeError("PAGINATED!")
+            if 'pagination' not in record:
+                break
 
-    def sync(self, ctx):
-        for company_obj in ctx.cache['companies']:
-            LOGGER.info("Running for {} on {}".format(company_obj['companies'][0]['companyId'], self.tap_stream_id))
-            company = company_obj['companies'][0]
+            offset = record['pagination']['offset']
+            limit = record['pagination']['limit']
+            total = record['pagination']['total']
+
+            if offset > total:
+                params = self.get_params(offset=offset + limit)
+            else:
+                break
+
+    def sync(self, ctx, companies, chunk_index, num_chunks):
+        total_companies = len(companies)
+        for i, company in enumerate(companies):
+            LOGGER.info("Running for {} on {} ({} of {}) [chunk {}/{}]".format(
+                company['companyId'],
+                self.tap_stream_id,
+                i + 1,
+                total_companies,
+                chunk_index + 1,
+                num_chunks))
+
             self._sync(ctx, company)
 
 
 class CompanyOfficers(CompanyInfo):
-    def get_params(self):
+    def get_params(self, offset=0):
         return {
-            "offset": 0,
+            "offset": int(offset),
             "limit": 50,
             "appointmentStatuses": "open,closed,retired"
         }
 
 
-company_query = CompanyQuery("company_query", ["companyId"], "/search/companies.json")
+PK = ["companyId", "countryCode"]
+company_query = CompanyQuery("company_query", PK, "/search/companies.json")
 all_streams = [
     company_query,
-    CompanyInfo('company_vitals', ["companyId"], "/company/:country_code/:company_id.json"),
-    CompanyInfo('company_industries', ["companyId"], "/company/:country_code/:company_id/industries.json"),
-    CompanyInfo('company_addresses', ["companyId"], "/company/:country_code/:company_id/addresses.json"),
-    CompanyInfo('company_descriptions', ["companyId"], "/company/:country_code/:company_id/descriptions.json"),
-    CompanyInfo('company_keywords', ["companyId"], "/company/:country_code/:company_id/keywords.json"),
-    CompanyInfo('company_telephone_numbers', ["companyId"], "/company/:country_code/:company_id/telephone-numbers.json"),
-    CompanyInfo('company_websites', ["companyId"], "/company/:country_code/:company_id/websites.json"),
-    CompanyInfo('company_related_names', ["companyId"], "/company/:country_code/:company_id/related-names.json"),
-    CompanyOfficers('company_officers', ["companyId"], "/company/:country_code/:company_id/officers.json"),
-    CompanyInfo('company_social_media_profiles', ["companyId"], "/company/:country_code/:company_id/social-media-profiles.json"),
-    CompanyInfo('company_shareholders', ["companyId"], "/company/:country_code/:company_id/shareholders.json"),
-    CompanyInfo('company_group_parents', ["companyId"], "/company/:country_code/:company_id/group-parents.json"),
-    CompanyInfo('company_group_subsidiaries', ["companyId"], "/company/:country_code/:company_id/group-subsidiaries.json"),
-    CompanyInfo('company_portfolio_companies', ["companyId"], "/company/:country_code/:company_id/portfolio-companies.json"),
-    CompanyInfo('company_gazette_notices', ["companyId"], "/company/:country_code/:company_id/gazette-notices.json"),
-    CompanyInfo('company_related_companies', ["companyId"], "/company/:country_code/:company_id/related-companies.json"),
-    CompanyInfo('company_fca_authorisations', ["companyId"], "/company/:country_code/:company_id/fca-authorisations.json"),
-    CompanyInfo('company_filings', ["companyId"], "/company/:country_code/:company_id/filings.json"),
-    CompanyInfo('company_charges', ["companyId"], "/company/:country_code/:company_id/charges.json"),
-    CompanyInfo('company_persons_of_significant_control', ["companyId"], "/company/:country_code/:company_id/persons-significant-control.json"),
-    CompanyInfo('company_financials', ["companyId"], "/company/:country_code/:company_id/financials.json"),
+    CompanyInfo('company_vitals', PK, "/company/:country_code/:company_id.json"),
+    CompanyInfo('company_industries', PK, "/company/:country_code/:company_id/industries.json"),
+    CompanyInfo('company_addresses', PK, "/company/:country_code/:company_id/addresses.json"),
+    CompanyInfo('company_descriptions', PK, "/company/:country_code/:company_id/descriptions.json"),
+    CompanyInfo('company_keywords', PK, "/company/:country_code/:company_id/keywords.json"),
+    CompanyInfo('company_telephone_numbers', PK, "/company/:country_code/:company_id/telephone-numbers.json"),
+    CompanyInfo('company_websites', PK, "/company/:country_code/:company_id/websites.json"),
+    CompanyInfo('company_related_names', PK, "/company/:country_code/:company_id/related-names.json"),
+    CompanyOfficers('company_officers', PK, "/company/:country_code/:company_id/officers.json"),
+    CompanyInfo('company_social_media_profiles', PK, "/company/:country_code/:company_id/social-media-profiles.json"),
+    CompanyInfo('company_shareholders', PK, "/company/:country_code/:company_id/shareholders.json"),
+    CompanyInfo('company_group_parents', PK, "/company/:country_code/:company_id/group-parents.json"),
+    CompanyInfo('company_group_subsidiaries', PK, "/company/:country_code/:company_id/group-subsidiaries.json"),
+    CompanyInfo('company_portfolio_companies', PK, "/company/:country_code/:company_id/portfolio-companies.json"),
+    CompanyInfo('company_gazette_notices', PK, "/company/:country_code/:company_id/gazette-notices.json"),
+    CompanyInfo('company_related_companies', PK, "/company/:country_code/:company_id/related-companies.json"),
+    CompanyInfo('company_fca_authorisations', PK, "/company/:country_code/:company_id/fca-authorisations.json"),
+    CompanyInfo('company_filings', PK, "/company/:country_code/:company_id/filings.json"),
+    CompanyInfo('company_charges', PK, "/company/:country_code/:company_id/charges.json"),
+    CompanyInfo('company_persons_of_significant_control', PK, "/company/:country_code/:company_id/persons-significant-control.json"),
+    CompanyInfo('company_financials', PK, "/company/:country_code/:company_id/financials.json"),
 ]
 all_stream_ids = [s.tap_stream_id for s in all_streams]

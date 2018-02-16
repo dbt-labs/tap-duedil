@@ -7,20 +7,6 @@
         "companyId": {
             "type": "string"
         },
-        "pagination": {
-            "type": "object",
-            "properties": {
-                "offset": {
-                    "type": "number"
-                },
-                "limit": {
-                    "type": "number"
-                },
-                "total": {
-                    "type": "number"
-                }
-            }
-        },
         "filters": {
             "type": [
                 "array",

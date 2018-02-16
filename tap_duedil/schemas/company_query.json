@@ -1,492 +1,87 @@
 {
     "type": "object",
-    "description": "Confirmation of optional search filters used in the request",
     "required": [
-        "filters",
-        "companies"
+        "countryCode",
+        "companyId",
+        "name",
+        "type",
+        "incorporationDate",
+        "officialStatus",
+        "simplifiedStatus"
     ],
+    "additionalProperties": false,
     "properties": {
-        "filters": {
-            "type": "object",
-            "additionalProperties": false,
-            "minProperties": 1,
-            "properties": {
-                "name": {
-                    "type": "string",
-                    "description": "Optional company name"
-                },
-                "domainNames": {
-                    "type": "object",
-                    "required": [
-                        "values"
-                    ],
-                    "additionalProperties": false,
-                    "description": "Optional domain names issued in the search request",
-                    "properties": {
-                        "values": {
-                            "type": "array",
-                            "items": {
-                                "type": "string"
-                            }
-                        },
-                        "mode": {
-                            "type": "string",
-                            "enum": [
-                                "any",
-                                "all"
-                            ]
-                        }
-                    }
-                },
-                "keywords": {
-                    "type": "object",
-                    "description": "Optional keywords issued in the search request",
-                    "properties": {
-                        "values": {
-                            "type": "array",
-                            "items": {
-                                "type": "string"
-                            }
-                        },
-                        "mode": {
-                            "type": "string",
-                            "enum": [
-                                "any",
-                                "all"
-                            ]
-                        },
-                        "except": {
-                            "type": "object",
-                            "description": "Optional not included keywords issued in the search request",
-                            "properties": {
-                                "values": {
-                                    "type": "array",
-                                    "items": {
-                                        "type": "string"
-                                    }
-                                },
-                                "mode": {
-                                    "type": "string",
-                                    "enum": [
-                                        "any",
-                                        "all"
-                                    ]
-                                }
-                            }
-                        }
-                    }
-                },
-                "countryCodes": {
-                    "type": "object",
-                    "description": "Optional country codes issued in the search request",
-                    "required": [
-                        "values"
-                    ],
-                    "additionalProperties": false,
-                    "properties": {
-                        "values": {
-                            "type": "array",
-                            "items": {
-                                "type": "string"
-                            }
-                        },
-                        "mode": {
-                            "type": "string",
-                            "enum": [
-                                "any",
-                                "all"
-                            ]
-                        }
-                    }
-                },
-                "simplifiedStatuses": {
-                    "type": "object",
-                    "description": "Optional company statuses issued in the search request",
-                    "required": [
-                        "values"
-                    ],
-                    "additionalProperties": false,
-                    "properties": {
-                        "values": {
-                            "type": "array",
-                            "items": {
-                                "type": "string",
-                                "description": "Simplified company status"
-                            }
-                        },
-                        "mode": {
-                            "type": "string",
-                            "enum": [
-                                "any",
-                                "all"
-                            ]
-                        }
-                    }
-                },
-                "regions": {
-                    "type": "object",
-                    "description": "Optional company addresses issued in the search request",
-                    "allOf": [
-                        {
-                            "$ref": "#/definitions/RegionsMultiValueFilter"
-                        }
-                    ]
-                },
-                "industries": {
-                    "type": "object",
-                    "description": "Optional company addresses issued in the search request",
-                    "allOf": [
-                        {
-                            "$ref": "#/definitions/IndustriesMultiValueFilter"
-                        }
-                    ]
-                },
-                "incorporated": {
-                    "type": "object",
-                    "description": "Optional incorporation date range issued in the search request",
-                    "additionalProperties": false,
-                    "minProperties": 1,
-                    "properties": {
-                        "from": {
-                            "type": "object",
-                            "additionalProperties": false,
-                            "required": [
-                                "year"
-                            ],
-                            "properties": {
-                                "year": {
-                                    "type": "integer"
-                                },
-                                "month": {
-                                    "type": "integer"
-                                },
-                                "day": {
-                                    "type": "integer"
-                                }
-                            }
-                        },
-                        "to": {
-                            "type": "object",
-                            "additionalProperties": false,
-                            "required": [
-                                "year"
-                            ],
-                            "properties": {
-                                "year": {
-                                    "type": "integer"
-                                },
-                                "month": {
-                                    "type": "integer"
-                                },
-                                "day": {
-                                    "type": "integer"
-                                }
-                            }
-                        }
-                    }
-                },
-                "employeesValue": {
-                    "type": "object",
-                    "description": "Optional range of employee values issued in the search request",
-                    "additionalProperties": false,
-                    "minProperties": 1,
-                    "properties": {
-                        "min": {
-                            "type": "number",
-                            "format": "float"
-                        },
-                        "max": {
-                            "type": "number",
-                            "format": "float"
-                        }
-                    }
-                },
-                "employeesDeltaPercentage": {
-                    "type": "object",
-                    "description": "Optional range of employee delta percentages issued in the search request",
-                    "additionalProperties": false,
-                    "minProperties": 1,
-                    "properties": {
-                        "min": {
-                            "type": "number",
-                            "format": "float"
-                        },
-                        "max": {
-                            "type": "number",
-                            "format": "float"
-                        }
-                    }
-                },
-                "turnoverValue": {
-                    "type": "object",
-                    "description": "Optional range of turnover value issued in the search request",
-                    "additionalProperties": false,
-                    "minProperties": 1,
-                    "properties": {
-                        "min": {
-                            "type": "number",
-                            "format": "float"
-                        },
-                        "max": {
-                            "type": "number",
-                            "format": "float"
-                        }
-                    }
-                },
-                "turnoverDeltaPercentage": {
-                    "type": "object",
-                    "description": "Optional range of turnover delta percentages issued in the search request",
-                    "additionalProperties": false,
-                    "minProperties": 1,
-                    "properties": {
-                        "min": {
-                            "type": "number",
-                            "format": "float"
-                        },
-                        "max": {
-                            "type": "number",
-                            "format": "float"
-                        }
-                    }
-                },
-                "ebitdaValue": {
-                    "type": "object",
-                    "description": "Optional range of ebidta values issued in the search request",
-                    "additionalProperties": false,
-                    "minProperties": 1,
-                    "properties": {
-                        "min": {
-                            "type": "number",
-                            "format": "float"
-                        },
-                        "max": {
-                            "type": "number",
-                            "format": "float"
-                        }
-                    }
-                },
-                "ebitdaDeltaPercentage": {
-                    "type": "object",
-                    "description": "Optional range of ebidta delta percentages issued in the search request",
-                    "additionalProperties": false,
-                    "minProperties": 1,
-                    "properties": {
-                        "min": {
-                            "type": "number",
-                            "format": "float"
-                        },
-                        "max": {
-                            "type": "number",
-                            "format": "float"
-                        }
-                    }
-                },
-                "netAssetsValue": {
-                    "type": "object",
-                    "description": "Optional range of net asset values issued in the search request",
-                    "additionalProperties": false,
-                    "minProperties": 1,
-                    "properties": {
-                        "min": {
-                            "type": "number",
-                            "format": "float"
-                        },
-                        "max": {
-                            "type": "number",
-                            "format": "float"
-                        }
-                    }
-                },
-                "netAssetsDeltaPercentage": {
-                    "type": "object",
-                    "description": "Optional range of net asset delta percentages issued in the search request",
-                    "additionalProperties": false,
-                    "minProperties": 1,
-                    "properties": {
-                        "min": {
-                            "type": "number",
-                            "format": "float"
-                        },
-                        "max": {
-                            "type": "number",
-                            "format": "float"
-                        }
-                    }
-                },
-                "totalAssetsValue": {
-                    "type": "object",
-                    "description": "Optional range of total asset values issued in the search request",
-                    "additionalProperties": false,
-                    "minProperties": 1,
-                    "properties": {
-                        "min": {
-                            "type": "number",
-                            "format": "float"
-                        },
-                        "max": {
-                            "type": "number",
-                            "format": "float"
-                        }
-                    }
-                },
-                "totalAssetsDeltaPercentage": {
-                    "type": "object",
-                    "description": "Optional range of total asset delta percentages issued in the search request",
-                    "allOf": [
-                        {
-                            "$ref": "#/definitions/RangeFilter"
-                        }
-                    ]
-                },
-                "postTaxProfitValue": {
-                    "type": "object",
-                    "description": "Optional range of post tax profit values issued in the search request",
-                    "additionalProperties": false,
-                    "minProperties": 1,
-                    "properties": {
-                        "min": {
-                            "type": "number",
-                            "format": "float"
-                        },
-                        "max": {
-                            "type": "number",
-                            "format": "float"
-                        }
-                    }
-                },
-                "postTaxProfitDeltaPercentage": {
-                    "type": "object",
-                    "description": "Optional range of post tax profit delta percentages issued in the search request",
-                    "additionalProperties": false,
-                    "minProperties": 1,
-                    "properties": {
-                        "min": {
-                            "type": "number",
-                            "format": "float"
-                        },
-                        "max": {
-                            "type": "number",
-                            "format": "float"
-                        }
-                    }
-                },
-                "creditRisk": {
-                    "allOf": [
-                        {
-                            "$ref": "#/definitions/CreditRiskMultiValueFilter"
-                        }
-                    ]
-                }
-            }
+        "countryCode": {
+            "type": "string"
         },
-        "companies": {
+        "companyId": {
+            "type": "string"
+        },
+        "name": {
+            "type": "string"
+        },
+        "type": {
+            "type": ["string", "null"]
+        },
+        "incorporationDate": {
+            "type": ["string", "null"],
+            "format": "date"
+        },
+        "officialStatus": {
+            "type": "string"
+        },
+        "simplifiedStatus": {
+            "type": "string"
+        },
+        "keywords": {
             "type": "array",
             "items": {
-                "type": "object",
-                "required": [
-                    "countryCode",
-                    "companyId",
-                    "name",
-                    "type",
-                    "incorporationDate",
-                    "officialStatus",
-                    "simplifiedStatus"
-                ],
-                "additionalProperties": false,
-                "properties": {
-                    "countryCode": {
-                        "type": "string"
-                    },
-                    "companyId": {
-                        "type": "string"
-                    },
-                    "name": {
-                        "type": "string"
-                    },
-                    "type": {
-                        "type": ["string", "null"]
-                    },
-                    "incorporationDate": {
-                        "type": ["string", "null"],
-                        "format": "date"
-                    },
-                    "officialStatus": {
-                        "type": "string"
-                    },
-                    "simplifiedStatus": {
-                        "type": "string"
-                    },
-                    "keywords": {
-                        "type": "array",
-                        "items": {
-                            "type": "string"
-                        }
-                    },
-                    "domains": {
-                        "type": "array",
-                        "items": {
-                            "type": "string"
-                        }
-                    },
-                    "addresses": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/definitions/CompanyAddress"
-                        }
-                    },
-                    "industries": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/definitions/CompanyIndustry"
-                        }
-                    },
-                    "creditRisk": {
-                        "type": "string"
-                    },
-                    "numberOfEmployees": {
-                        "allOf": [
-                            {
-                                "$ref": "#/definitions/FinancialValueSimple"
-                            }
-                        ]
-                    },
-                    "turnover": {
-                        "allOf": [
-                            {
-                                "$ref": "#/definitions/FinancialValueSimple"
-                            }
-                        ]
-                    },
-                    "ebitda": {
-                        "allOf": [
-                            {
-                                "$ref": "#/definitions/FinancialValueSimple"
-                            }
-                        ]
-                    },
-                    "netAssets": {
-                        "allOf": [
-                            {
-                                "$ref": "#/definitions/FinancialValueSimple"
-                            }
-                        ]
-                    },
-                    "totalAssets": {
-                        "allOf": [
-                            {
-                                "$ref": "#/definitions/FinancialValueSimple"
-                            }
-                        ]
-                    },
-                    "postTaxProfit": {
-                        "allOf": [
-                            {
-                                "$ref": "#/definitions/FinancialValueSimple"
-                            }
-                        ]
-                    }
-                }
+                "type": "string"
             }
+        },
+        "domains": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "addresses": {
+            "type": "array",
+            "items": {
+                "$ref": "company_address"
+            }
+        },
+        "industries": {
+            "type": "array",
+            "items": {
+                "$ref": "company_industry"
+            }
+        },
+        "creditRisk": {
+            "type": "string"
+        },
+        "numberOfEmployees": {
+            "$ref": "financial_value_simple"
+        },
+        "turnover": {
+            "$ref": "financial_value_simple"
+        },
+        "ebitda": {
+            "$ref": "financial_value_simple"
+        },
+        "netAssets": {
+            "$ref": "financial_value_simple"
+        },
+        "totalAssets": {
+            "$ref": "financial_value_simple"
+        },
+        "postTaxProfit": {
+            "$ref": "financial_value_simple"
         }
-    }
+    },
+    "tap_schema_dependencies": [
+        "financial_value_simple",
+        "company_address",
+        "company_industry"
+    ]
 }

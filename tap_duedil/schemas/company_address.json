@@ -1,0 +1,82 @@
+{
+    "type": "object",
+    "required": [
+        "types",
+        "fullAddress",
+        "structuredAddress",
+        "geolocation"
+    ],
+    "additionalProperties": false,
+    "properties": {
+        "types": {
+            "type": "array",
+            "description": "Address usage types",
+            "items": {
+                "type": "string",
+                "enum": [
+                    "registered",
+                    "trading",
+                    "branch"
+                ]
+            }
+        },
+        "fullAddress": {
+            "type": "string",
+            "description": "A ready-to-render single-line string representation of an address."
+        },
+        "structuredAddress": {
+            "type": "object",
+            "required": [
+                "premises",
+                "thoroughfare",
+                "dependentLocality",
+                "postTown",
+                "county",
+                "postcode",
+                "countryCode"
+            ],
+            "additionalProperties": false,
+            "properties": {
+                "premises": {
+                    "type": "string"
+                },
+                "thoroughfare": {
+                    "type": "string"
+                },
+                "dependentLocality": {
+                    "type": "string"
+                },
+                "postTown": {
+                    "type": "string"
+                },
+                "county": {
+                    "type": "string"
+                },
+                "postcode": {
+                    "type": "string"
+                },
+                "countryCode": {
+                    "type": "string"
+                }
+            }
+        },
+        "geolocation": {
+            "type": "object",
+            "required": [
+                "latitude",
+                "longitude"
+            ],
+            "additionalProperties": false,
+            "properties": {
+                "latitude": {
+                    "type": "number",
+                    "format": "float"
+                },
+                "longitude": {
+                    "type": "number",
+                    "format": "float"
+                }
+            }
+        }
+    }
+}

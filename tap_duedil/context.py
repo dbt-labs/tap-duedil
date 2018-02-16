@@ -51,12 +51,12 @@ class Context(object):
     def clear_offsets(self, tap_stream_id):
         bks_.clear_offset(self.state, tap_stream_id)
 
-    def update_start_date_bookmark(self, path):
-        val = self.get_bookmark(path)
-        if not val:
-            val = self.config["start_date"]
-            self.set_bookmark(path, val)
-        return val
+    def update_company_query_page_bookmark(self, path):
+        start_page = self.get_bookmark(path)
+        if not start_page:
+            start_page = 0
+            self.set_bookmark(path, start_page)
+        return start_page
 
     def write_state(self):
         singer.write_state(self.state)

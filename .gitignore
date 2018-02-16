@@ -5,3 +5,10 @@ tap_duedil/__pycache__
 catalog.json
 get_catalog.py
 makefile
+companies.txt
+query.json
+example_query.json
+persist.json
+out/
+run.sh
+run.log
