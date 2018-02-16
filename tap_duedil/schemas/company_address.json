@@ -12,12 +12,7 @@
             "type": "array",
             "description": "Address usage types",
             "items": {
-                "type": "string",
-                "enum": [
-                    "registered",
-                    "trading",
-                    "branch"
-                ]
+                "type": "string"
             }
         },
         "fullAddress": {

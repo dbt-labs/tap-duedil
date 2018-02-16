@@ -192,8 +192,7 @@ def sync(ctx, selected_streams, company_filename):
 def fetch_companies(ctx, query, company_filename):
     company_query = streams_.company_query
     load_and_write_schema(ctx, company_query)
-    streams_.company_query.fetch_into_cache(ctx, query)
-    streams_.company_query.sync(ctx)
+    streams_.company_query.sync(ctx, query)
 
     with open(company_filename, 'w') as fh:
         for company in ctx.cache['companies']:

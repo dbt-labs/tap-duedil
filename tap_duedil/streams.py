@@ -61,6 +61,7 @@ class CompanyQuery(Stream):
             resp_companies = resp.pop('companies')
 
             companies = [transform(company, schema) for company in resp_companies]
+            self.write_records(companies)
             all_companies.extend(companies)
 
             if len(companies) == 0:
@@ -72,10 +73,7 @@ class CompanyQuery(Stream):
 
         return all_companies
 
-    def sync(self, ctx):
-        self.write_records(ctx.cache['companies'])
-
-    def fetch_into_cache(self, ctx, query):
+    def sync(self, ctx, query):
         ctx.update_company_query_page_bookmark([self.tap_stream_id, 'company_offset'])
 
         companies = self._sync(ctx, query)
