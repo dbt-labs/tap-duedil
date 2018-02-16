@@ -18,7 +18,7 @@ This tap:
    - [company officers](https://www.duedil.com/api/docs#tag/Essentials%2Fpaths%2F~1company~1%7BcountryCode%7D~1%7BcompanyId%7D~1officers.%7Bformat%7D%2Fget)
    - [social media](https://www.duedil.com/api/docs#tag/Essentials%2Fpaths%2F~1company~1%7BcountryCode%7D~1%7BcompanyId%7D~1social-media-profiles.%7Bformat%7D%2Fget)
    - [shareholders](https://www.duedil.com/api/docs#tag/Ownership%2Fpaths%2F~1company~1%7BcountryCode%7D~1%7BcompanyId%7D~1shareholders.%7Bformat%7D%2Fget)
-   - [company group (parents)](https://www.duedil.com/api/docs#tag/Ownership%2Fpaths%2F~1company~1%7BcountryCode%7D~1%7BcompanyId%7D~1group-parents.%7Bformat%7D%2Fget)
+   - [company group parents](https://www.duedil.com/api/docs#tag/Ownership%2Fpaths%2F~1company~1%7BcountryCode%7D~1%7BcompanyId%7D~1group-parents.%7Bformat%7D%2Fget)
     - [subsidiaries](https://www.duedil.com/api/docs#tag/Ownership%2Fpaths%2F~1company~1%7BcountryCode%7D~1%7BcompanyId%7D~1group-subsidiaries.%7Bformat%7D%2Fget)
    - [portfolio](https://www.duedil.com/api/docs#tag/Ownership%2Fpaths%2F~1company~1%7BcountryCode%7D~1%7BcompanyId%7D~1portfolio-companies.%7Bformat%7D%2Fget)
    - [gazette notices](https://www.duedil.com/api/docs#tag/Ownership%2Fpaths%2F~1company~1%7BcountryCode%7D~1%7BcompanyId%7D~1gazette-notices.%7Bformat%7D%2Fget)
