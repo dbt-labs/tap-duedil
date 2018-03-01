@@ -8,6 +8,7 @@ import time
 LOGGER = singer.get_logger()
 BASE_URL = "https://duedil.io/v4/"
 
+MAX_ERROR = 10
 
 class RateLimitException(Exception):
     pass
@@ -24,6 +25,8 @@ class Client(object):
         self.session = requests.Session()
         self.base_url = BASE_URL
         self._token = None
+
+        self.unhandled_500s = 0
 
     @property
     def token(self):
@@ -55,13 +58,13 @@ class Client(object):
 
     @backoff.on_exception(backoff.expo,
                           RateLimitException,
-                          max_tries=10,
+                          max_tries=5,
                           factor=2)
     def request_with_handling(self, request, tap_stream_id):
         with metrics.http_request_timer(tap_stream_id) as timer:
             response = self.prepare_and_send(request)
             timer.tags[metrics.Tag.http_status_code] = response.status_code
-        if response.status_code in [429, 503]:
+        if response.status_code in [429, 503, 500]:
             raise RateLimitException()
         if response.status_code == 404:
             return None
@@ -81,10 +84,10 @@ class Client(object):
         except Exception as e:
             LOGGER.error(e)
             LOGGER.info("Unhandled exception - Trying again")
-            time.sleep(5)
-            return self.request_with_handling(req, *args, **kwargs)
 
-
+            self.unhandled_500s += 1
+            if self.unhandled_500s > MAX_ERROR:
+                raise
 
     def POST(self, request_kwargs, *args, **kwargs):
         req = self.create_post_request(**request_kwargs)
