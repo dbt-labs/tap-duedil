@@ -103,6 +103,10 @@ class CompanyInfo(Stream):
         params = self.get_params()
         while True:
             resp = ctx.client.GET({"path": path, "params": params}, self.tap_stream_id)
+            if not resp:
+                # no data available for this company!
+                break
+            
             raw_record = self.format_response(resp)
             record = transform(raw_record, schema)
             self.write_records([record])
