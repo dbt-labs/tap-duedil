@@ -156,112 +156,112 @@
                                         "string",
                                         "null"
                                     ]
+                                }
+                            },
+                            "startDate": {
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
+                            },
+                            "endDate": {
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
+                            }
+                        }
+                    },
+                    "appointments": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "status": {
+                                    "type": [
+                                        "string",
+                                        "null"
+                                    ]
                                 },
                                 "startDate": {
                                     "type": [
                                         "string",
                                         "null"
-                                    ]
+                                    ],
+                                    "format": "date-time"
                                 },
                                 "endDate": {
                                     "type": [
                                         "string",
                                         "null"
+                                    ],
+                                    "format": "date-time"
+                                },
+                                "officialRole": {
+                                    "type": [
+                                        "string",
+                                        "null"
                                     ]
-                                }
-                            }
-                        },
-                        "appointments": {
-                            "type": "array",
-                            "items": {
-                                "type": "object",
-                                "properties": {
-                                    "status": {
-                                        "type": [
-                                            "string",
-                                            "null"
-                                        ]
-                                    },
-                                    "startDate": {
-                                        "type": [
-                                            "string",
-                                            "null"
-                                        ],
-                                        "format": "date-time"
-                                    },
-                                    "endDate": {
-                                        "type": [
-                                            "string",
-                                            "null"
-                                        ],
-                                        "format": "date-time"
-                                    },
-                                    "officialRole": {
-                                        "type": [
-                                            "string",
-                                            "null"
-                                        ]
-                                    },
-                                    "selfDescribedPosition": {
-                                        "type": [
-                                            "string",
-                                            "null"
-                                        ]
-                                    },
-                                    "serviceAddress": {
-                                        "type": "object",
-                                        "properties": {
-                                            "fullAddress": {
-                                                "type": [
-                                                    "string",
-                                                    "null"
-                                                ]
-                                            },
-                                            "structuredAddress": {
-                                                "type": "object",
-                                                "properties": {
-                                                    "premises": {
-                                                        "type": [
-                                                            "string",
-                                                            "null"
-                                                        ]
-                                                    },
-                                                    "thoroughfare": {
-                                                        "type": [
-                                                            "string",
-                                                            "null"
-                                                        ]
-                                                    },
-                                                    "dependentLocality": {
-                                                        "type": [
-                                                            "string",
-                                                            "null"
-                                                        ]
-                                                    },
-                                                    "postTown": {
-                                                        "type": [
-                                                            "string",
-                                                            "null"
-                                                        ]
-                                                    },
-                                                    "county": {
-                                                        "type": [
-                                                            "string",
-                                                            "null"
-                                                        ]
-                                                    },
-                                                    "postcode": {
-                                                        "type": [
-                                                            "string",
-                                                            "null"
-                                                        ]
-                                                    },
-                                                    "countryCode": {
-                                                        "type": [
-                                                            "string",
-                                                            "null"
-                                                        ]
-                                                    }
+                                },
+                                "selfDescribedPosition": {
+                                    "type": [
+                                        "string",
+                                        "null"
+                                    ]
+                                },
+                                "serviceAddress": {
+                                    "type": "object",
+                                    "properties": {
+                                        "fullAddress": {
+                                            "type": [
+                                                "string",
+                                                "null"
+                                            ]
+                                        },
+                                        "structuredAddress": {
+                                            "type": "object",
+                                            "properties": {
+                                                "premises": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ]
+                                                },
+                                                "thoroughfare": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ]
+                                                },
+                                                "dependentLocality": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ]
+                                                },
+                                                "postTown": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ]
+                                                },
+                                                "county": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ]
+                                                },
+                                                "postcode": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ]
+                                                },
+                                                "countryCode": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ]
                                                 }
                                             }
                                         }
