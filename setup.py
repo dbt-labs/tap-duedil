@@ -10,7 +10,7 @@ setup(
     classifiers=["Programming Language :: Python :: 3 :: Only"],
     py_modules=["tap_duedil"],
     install_requires=[
-        "singer-python==5.0.4",
+        "singer-python==5.4.1",
         "requests",
     ],
     entry_points="""

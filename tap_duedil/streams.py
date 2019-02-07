@@ -58,7 +58,15 @@ class CompanyQuery(Stream):
             params = self.get_params(ctx, offset, query)
             data = {"path": self.path, "data": params}
             resp = ctx.client.POST(data, self.tap_stream_id)
-            resp_companies = resp.pop('companies')
+            if resp is None:
+                LOGGER.info("Unable to get results for stream={}, data={}".format(self.tap_stream_id, data))
+                # what else can we do here? If we get None back, it's because the API
+                # was unable to produce a successful response for this query. For now,
+                # just move onto the next offset
+                offset += 50
+                continue
+            else:
+                resp_companies = resp.pop('companies')
 
             companies = [transform(company, schema) for company in resp_companies]
             self.write_records(companies)
