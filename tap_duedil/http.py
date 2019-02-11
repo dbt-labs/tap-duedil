@@ -56,8 +56,8 @@ class Client(object):
 
     def create_post_request(self, path, **kwargs):
         data = kwargs.pop('data', {})
-        query = data.pop('query', {})
-        body = json.dumps(data.pop('body', {}))
+        query = data.get('query', {})
+        body = json.dumps(data.get('body', {}))
         return requests.Request(method="POST", url=self.url(path), data=body, params=query, **kwargs)
 
     @backoff.on_exception(backoff.expo,
