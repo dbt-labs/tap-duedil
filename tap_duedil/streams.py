@@ -1,6 +1,7 @@
 import singer
 from singer import metrics, transform
 import datetime
+import time
 
 LOGGER = singer.get_logger()
 
@@ -48,6 +49,25 @@ class CompanyQuery(Stream):
             "body": query
         }
 
+    def _company_fetch(self, ctx, offset, query, attempts=0):
+        if attempts > 2:
+            LOGGER.info("Query for stream={} with path={}, query={} failed after retrying - exiting".format(
+                        self.tap_stream_id,
+                        self.path,
+                        query))
+            raise RuntimeError("Failed after retry for company query")
+
+        params = self.get_params(ctx, offset, query)
+        data = {"path": self.path, "data": params}
+        resp = ctx.client.POST(data, self.tap_stream_id)
+
+        if resp is None:
+            LOGGER.info("Unable to get results for stream={}, data={}".format(self.tap_stream_id, data))
+            LOGGER.info("Sleeping for 30 seconds, then trying again")
+            time.sleep(30)
+            return self._company_fetch(ctx, offset, query, attempts + 1)
+        else:
+            return resp
 
     def _sync(self, ctx, query):
         schema = ctx.catalog.get_stream(self.tap_stream_id).schema.to_dict()
@@ -55,9 +75,7 @@ class CompanyQuery(Stream):
         all_companies = []
         offset = 0
         while True:
-            params = self.get_params(ctx, offset, query)
-            data = {"path": self.path, "data": params}
-            resp = ctx.client.POST(data, self.tap_stream_id)
+            resp = self._company_fetch(ctx, offset, query)
             resp_companies = resp.pop('companies')
 
             companies = [transform(company, schema) for company in resp_companies]
