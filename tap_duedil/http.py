@@ -80,9 +80,6 @@ class Client(object):
             return None
         if response.status_code == 400:
             LOGGER.fatal(response.json())
-        if tap_stream_id == 'company_query' and response.status_code == 500:
-            LOGGER.info('POSSIBLE CACHE MISS - RECEIVED 500 ERROR. Retrying!')
-            raise RateLimitException()
 
         response.raise_for_status()
         return response.json()
