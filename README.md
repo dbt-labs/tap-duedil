@@ -1,3 +1,15 @@
+# ***Archival Notice***
+This repository has been archived.
+
+As a result all of its historical issues and PRs have been closed.
+
+Please *do not clone* this repo without understanding the risk in doing so:
+- It may have unaddressed security vulnerabilities
+- It may have unaddressed bugs
+
+<details>
+   <summary>Click for historical readme</summary>
+
 # tap-duedil
 
 This is a [Singer](https://singer.io) tap that produces JSON-formatted data
@@ -50,7 +62,7 @@ You must create a JSON configuration file that looks like this:
 
 ```json
 {
-    "api_key": "..."
+    &quot;api_key&quot;: &quot;...&quot;
 }
 ```
 
@@ -73,10 +85,10 @@ First, create a JSON file containing your company search criteria.
 ```json
 # company-query.json
 {
-    "criteria": {
-        "countryCodes": {
-            "values": [
-                "GB"
+    &quot;criteria&quot;: {
+        &quot;countryCodes&quot;: {
+            &quot;values&quot;: [
+                &quot;GB&quot;
             ]
         }
     }
@@ -90,7 +102,7 @@ $ tap-duedil query -q company-query.json -c config.json -p catalog.json --compan
 ```
 
 This command will create a text file called companies.txt, containing one company per line. When the tap
-is run in "sync" mode, the tap will use this file to sync each endpoint for each company.
+is run in &quot;sync&quot; mode, the tap will use this file to sync each endpoint for each company.
 
 #### 6. Run the tap in Sync mode
 
@@ -105,4 +117,5 @@ on these parameters, run `tap-duedil sync -h`
 
 ---
 
-Copyright &copy; 2017 Fishtown Analytics
+Copyright &amp;copy; 2017 Fishtown Analytics
+
